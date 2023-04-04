@@ -12,22 +12,15 @@ Check that Yarn is installed by running:
 ```bash
 yarn --version
 ```
-
-## Usage
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+Installing all the dependencies of project
+```bash
+yarn install
 ```
-
+## Usage
+Start server
+```bash
+yarn start
+```
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first

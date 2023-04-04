@@ -1,0 +1,18 @@
+{
+  "name": "SOA-FinalProject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/it-TranKhaiHoang/SOA-FinalProject.git",
+  "author": "Tran Khai Hoang <hoangbo74@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express-handlebars": "^7.0.4",
+    "jsonwebtoken": "^9.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22"
+  }
+}

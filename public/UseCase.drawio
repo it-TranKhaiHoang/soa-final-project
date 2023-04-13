@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-13T14:59:21.453Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="CQHzPariPJ18Q6Aot8Fm" version="21.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-04-13T15:05:41.947Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="BwooUntKdmiSSGUvMurz" version="21.1.2" type="github">
   <diagram name="Page-1" id="wY8YDzLvJTrgZEUhbYze">
-    <mxGraphModel dx="1687" dy="927" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="700" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="788" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -10,8 +10,8 @@
         <mxCell id="WTguVuReiUjEnsbTcqU9-4" value="&lt;font face=&quot;Times New Roman&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Account Manager&lt;/span&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;shadow=0;strokeWidth=2;rounded=0;fillColor=none;" vertex="1" parent="WTguVuReiUjEnsbTcqU9-1">
           <mxGeometry x="80" y="485" width="120" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="WTguVuReiUjEnsbTcqU9-11" value="&lt;p&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;Classroom Management Module of Primary School&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontFamily=Architects Daughter;" vertex="1" parent="WTguVuReiUjEnsbTcqU9-1">
-          <mxGeometry x="5" y="10" width="500" height="30" as="geometry" />
+        <mxCell id="WTguVuReiUjEnsbTcqU9-11" value="&lt;p&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;Primary School Communication Module&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontFamily=Architects Daughter;" vertex="1" parent="WTguVuReiUjEnsbTcqU9-1">
+          <mxGeometry x="30" y="10" width="500" height="30" as="geometry" />
         </mxCell>
         <mxCell id="WTguVuReiUjEnsbTcqU9-18" value="&lt;font face=&quot;Times New Roman&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Create Class&lt;/span&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;shadow=0;strokeWidth=2;rounded=0;fillColor=none;" vertex="1" parent="WTguVuReiUjEnsbTcqU9-1">
           <mxGeometry x="80" y="340" width="120" height="50" as="geometry" />

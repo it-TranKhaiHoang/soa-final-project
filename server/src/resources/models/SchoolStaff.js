@@ -30,6 +30,10 @@ const SchoolStaff = new Schema({
         type: String,
         enum: ['male', 'female'],
     },
+    isHomeroom: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 module.exports = mongoose.model('SchoolStaff', SchoolStaff);

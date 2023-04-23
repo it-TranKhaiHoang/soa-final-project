@@ -20,6 +20,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 database.connect();
 
 // Router
-app.use('/api', apiRouter);
+
 
 app.listen(port, () => console.log('Server started'));

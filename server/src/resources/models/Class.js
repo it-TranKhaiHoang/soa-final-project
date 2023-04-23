@@ -20,7 +20,8 @@ const Class = new Schema(
             enum: ['1st', '2nd', '3rd', '4th', '5th'],
             required: true,
         },
-        schedule: { type: [mongoose.Types.ObjectId], ref: 'Schedule' },
+        schedules: { type: [mongoose.Types.ObjectId], ref: 'Schedule' },
+        students: { type: [mongoose.Types.ObjectId], ref: 'Student' },
     },
     {
         timestamps: true,

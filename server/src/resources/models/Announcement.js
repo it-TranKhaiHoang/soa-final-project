@@ -5,6 +5,7 @@ const Announcement = new Schema(
     {
         sendBy: { type: mongoose.Types.ObjectId, ref: 'SchoolStaff' },
         sendTo: { type: mongoose.Types.ObjectId, ref: 'Student' },
+        type: { type: String, required: true },
         title: {
             type: String,
             required: true,

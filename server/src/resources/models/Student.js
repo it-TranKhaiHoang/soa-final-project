@@ -33,6 +33,7 @@ const Student = new Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Class',
     },
+    parent: { type: mongoose.Types.ObjectId, ref: 'Parent' },
 });
 
 module.exports = mongoose.model('Student', Student);

@@ -7,13 +7,19 @@ const StudentService = {
     getList: async (condition, options, sortBy, populate) => {
         let skip = options.skip || 0;
         let limit = options.limit || 0;
-        return Student.find(condition).sort(sortBy).skip(skip).limit(limit).populate(populate).lean();
+        return Student.find(condition)
+            .sort(sortBy)
+            .skip(skip)
+            .limit(limit)
+            .populate('parent')
+            .populate(populate)
+            .lean();
     },
     getOne: async (condition) => {
-        return Student.findOne(condition);
+        return Student.findOne(condition).populate('parent');
     },
     getOneByID: async (id) => {
-        return Student.findById(id);
+        return Student.findById(id).populate('parent');
     },
     update: async (id, data) => {
         return Student.findByIdAndUpdate(id, { $set: data });

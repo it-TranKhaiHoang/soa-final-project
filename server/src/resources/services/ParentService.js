@@ -10,10 +10,10 @@ const ParentService = {
         return Parent.find(condition).sort(sortBy).skip(skip).limit(limit).populate(populate).lean();
     },
     getOne: async (condition) => {
-        return Parent.findOne(condition);
+        return Parent.findOne(condition).populate('student');
     },
     getOneByID: async (id) => {
-        return Parent.findById(id);
+        return Parent.findById(id).populate('student');
     },
     update: async (id, data) => {
         return Parent.findByIdAndUpdate(id, { $set: data });

@@ -15,6 +15,7 @@ const Parent = new Schema({
         type: String,
         required: true,
     },
+    address: { type: String },
     phone: {
         type: String,
         required: true,

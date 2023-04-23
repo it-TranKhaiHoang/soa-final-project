@@ -5,6 +5,7 @@ const SchoolStaff = new Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
     },
     password: {
         type: String,
@@ -20,15 +21,15 @@ const SchoolStaff = new Schema({
     },
     position: {
         type: String,
-        enum: ["teacher", "principal"]
+        enum: ['teacher', 'principal'],
     },
     address: {
-        type: String
+        type: String,
     },
     gender: {
         type: String,
-        enum: ["male", "female"]
-    }
+        enum: ['male', 'female'],
+    },
 });
 
 module.exports = mongoose.model('SchoolStaff', SchoolStaff);

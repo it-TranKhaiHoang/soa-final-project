@@ -5,6 +5,7 @@ const Parent = new Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
     },
     password: {
         type: String,
@@ -18,7 +19,7 @@ const Parent = new Schema({
         type: Number,
         required: true,
     },
-    student: { type: mongoose.Types.ObjectId, ref: 'Student' }
+    student: { type: mongoose.Types.ObjectId, ref: 'Student' },
 });
 
 module.exports = mongoose.model('Parent', Parent);

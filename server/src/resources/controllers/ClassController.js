@@ -1,5 +1,5 @@
 const ClassService = require('../services/ClassService');
-
+const StudentService = require('../services/StudentService');
 const ClassController = {
     getAllList: (req, res, next) => {
         return ClassService.getList({}, {}, {}, 'teacher')
@@ -51,6 +51,23 @@ const ClassController = {
             .then(() => {
                 res.status(200);
                 res.json({ message: 'Update Successfully' });
+            })
+            .catch((err) => {
+                res.status(500);
+                res.json({ message: err });
+            });
+    },
+    putAddStudent: (req, res, next) => {
+        ClassService.getOneByID(req.params.classID)
+            .then((c) => {
+                c.students.push(req.params.studentID);
+                c.save();
+                StudentService.getOneByID(req.params.studentID).then((student) => {
+                    student.currentClass = req.params.classID;
+                    student.save();
+                    res.status(200);
+                    res.json({ message: 'Add Student Successfully' });
+                });
             })
             .catch((err) => {
                 res.status(500);

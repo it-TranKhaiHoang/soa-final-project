@@ -1,4 +1,5 @@
 const StudentService = require('../services/StudentService');
+const ClassService = require('../services/ClassService');
 const bcrypt = require('bcryptjs');
 
 function hashPassword(password) {
@@ -42,7 +43,7 @@ const StudentController = {
             });
     },
     getListAll: (req, res, next) => {
-        StudentService.getList({}, {}, {}, 'currentClass')
+        StudentService.getList({}, {}, {}, { path: 'currentClass', populate: { path: 'teacher' } })
             .then((students) => {
                 if (students.length > 0) {
                     res.status(200).json(students);
@@ -55,7 +56,12 @@ const StudentController = {
             });
     },
     getListByClass: (req, res, next) => {
-        StudentService.getList({ currentClass: req.params.classID }, {}, {}, 'currentClass')
+        StudentService.getList(
+            { currentClass: req.params.classID },
+            {},
+            {},
+            { path: 'currentClass', populate: { path: 'teacher' } },
+        )
             .then((students) => {
                 if (students.length > 0) {
                     res.status(200).json(students);
@@ -68,7 +74,12 @@ const StudentController = {
             });
     },
     getListByGrade: (req, res, next) => {
-        StudentService.getList({ currentGrade: req.params.grade }, {}, {}, 'currentClass')
+        StudentService.getList(
+            { currentGrade: req.params.grade },
+            {},
+            {},
+            { path: 'currentClass', populate: { path: 'teacher' } },
+        )
             .then((students) => {
                 if (students.length > 0) {
                     res.status(200).json(students);

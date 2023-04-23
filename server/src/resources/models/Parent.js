@@ -16,7 +16,7 @@ const Parent = new Schema({
         required: true,
     },
     phone: {
-        type: Number,
+        type: String,
         required: true,
     },
     student: { type: mongoose.Types.ObjectId, ref: 'Student' },

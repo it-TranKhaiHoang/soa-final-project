@@ -27,7 +27,6 @@ const Student = new Schema({
     class: {
         type: mongoose.Types.ObjectId,
         ref: 'Class',
-        required: true,
     },
 });
 

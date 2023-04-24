@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-21T13:20:17.819Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 OPR/97.0.0.0" etag="Yc0A51IKWRPjK1hiYBGM" version="21.1.8" type="device">
+<mxfile host="app.diagrams.net" modified="2023-04-24T08:05:05.135Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 OPR/97.0.0.0" etag="-KclzAqbZGMzsqBb0P56" version="21.2.1" type="device">
   <diagram name="Page-1" id="8CCxXFG7EDy1ZWGpXJ0g">
     <mxGraphModel dx="1050" dy="550" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -48,12 +48,6 @@
         </mxCell>
         <mxCell id="bnvPDE9fhh-Au9ItPn83-15" value="&lt;font face=&quot;Times New Roman&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Add Student&lt;/span&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;shadow=0;strokeWidth=2;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="405" y="886" width="120" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="bnvPDE9fhh-Au9ItPn83-16" value="&lt;font face=&quot;Times New Roman&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Account Manager&lt;/span&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;shadow=0;strokeWidth=2;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-          <mxGeometry x="535" y="755" width="120" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="bnvPDE9fhh-Au9ItPn83-17" value="&lt;font face=&quot;Times New Roman&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Reset Password&lt;/span&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;shadow=0;strokeWidth=2;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-          <mxGeometry x="535" y="886" width="120" height="50" as="geometry" />
         </mxCell>
         <mxCell id="bnvPDE9fhh-Au9ItPn83-18" value="&lt;p style=&quot;line-height: 0%;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;Teacher&lt;/font&gt;&lt;/p&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;strokeWidth=2;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="65" y="338" width="30" height="60" as="geometry" />
@@ -125,9 +119,6 @@
             <mxPoint x="445" y="936" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bnvPDE9fhh-Au9ItPn83-61" value="&lt;p style=&quot;line-height: 0%;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;System Manager&lt;/font&gt;&lt;/p&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;strokeWidth=2;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="765" y="750" width="30" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="bnvPDE9fhh-Au9ItPn83-65" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bnvPDE9fhh-Au9ItPn83-19" target="bnvPDE9fhh-Au9ItPn83-10" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="415" y="840" as="sourcePoint" />
@@ -153,18 +144,6 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="405" y="490" as="sourcePoint" />
             <mxPoint x="565" y="490" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="bnvPDE9fhh-Au9ItPn83-84" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bnvPDE9fhh-Au9ItPn83-16" target="bnvPDE9fhh-Au9ItPn83-61" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="605" y="726" as="sourcePoint" />
-            <mxPoint x="765" y="726" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="bnvPDE9fhh-Au9ItPn83-85" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="bnvPDE9fhh-Au9ItPn83-17" target="bnvPDE9fhh-Au9ItPn83-16" edge="1">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="605" y="726" as="sourcePoint" />
-            <mxPoint x="765" y="726" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="bnvPDE9fhh-Au9ItPn83-86" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="bnvPDE9fhh-Au9ItPn83-20" target="bnvPDE9fhh-Au9ItPn83-21" edge="1">

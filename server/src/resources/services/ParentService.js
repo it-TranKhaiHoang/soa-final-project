@@ -15,6 +15,9 @@ const ParentService = {
     getOneByID: async (id) => {
         return Parent.findById(id).populate('student');
     },
+    getOneByIDAndLean: async (id) => {
+        return Parent.findById(id).populate('student').lean();
+    },
     update: async (id, data) => {
         return Parent.findByIdAndUpdate(id, { $set: data });
     },

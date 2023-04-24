@@ -7,7 +7,7 @@ const session = require('express-session');
 const flash = require('express-flash');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const apiRouter = require('./resources/routers');
+const apiRouter = require('./resources/routers/index');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

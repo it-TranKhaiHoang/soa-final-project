@@ -15,8 +15,9 @@ const Parent = new Schema({
         type: String,
         required: true,
     },
+    address: { type: String },
     phone: {
-        type: Number,
+        type: String,
         required: true,
     },
     student: { type: mongoose.Types.ObjectId, ref: 'Student' },

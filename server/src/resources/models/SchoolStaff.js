@@ -16,7 +16,7 @@ const SchoolStaff = new Schema({
         required: true,
     },
     phone: {
-        type: Number,
+        type: String,
         required: true,
     },
     position: {
@@ -29,6 +29,10 @@ const SchoolStaff = new Schema({
     gender: {
         type: String,
         enum: ['male', 'female'],
+    },
+    isHomeroom: {
+        type: Boolean,
+        default: false,
     },
 });
 

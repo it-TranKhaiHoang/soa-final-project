@@ -15,7 +15,13 @@ const Class = new Schema(
             type: mongoose.Types.ObjectId,
             ref: 'SchoolStaff',
         },
-        schedule: { type: [mongoose.Types.ObjectId], ref: 'Schedule' },
+        grade: {
+            type: String,
+            enum: ['1st', '2nd', '3rd', '4th', '5th'],
+            required: true,
+        },
+        schedules: { type: [mongoose.Types.ObjectId], ref: 'Schedule' },
+        students: { type: [mongoose.Types.ObjectId], ref: 'Student' },
     },
     {
         timestamps: true,

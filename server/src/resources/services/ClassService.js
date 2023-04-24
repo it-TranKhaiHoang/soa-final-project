@@ -15,6 +15,12 @@ const ClassService = {
     getOneByID: async (id) => {
         return Class.findById(id);
     },
+    getOneByIDAndPopulate: async (id, populate) => {
+        return Class.findById(id).populate(populate);
+    },
+    getByIDAndLean: async (id) => {
+        return Class.findById(id)
+    },
     update: async (id, data) => {
         return Class.findByIdAndUpdate(id, { $set: data });
     },

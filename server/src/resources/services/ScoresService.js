@@ -7,7 +7,7 @@ const ScoresService = {
     getList: async (condition, options, sortBy, populate) => {
         let skip = options.skip || 0;
         let limit = options.limit || 0;
-        return Scores.find(condition).sort(sortBy).skip(skip).limit(limit).populate(populate).lean();
+        return Scores.find(condition).sort(sortBy).skip(skip).limit(limit).populate(populate).populate('student').lean();
     },
     getOne: async (condition) => {
         return Scores.findOne(condition);

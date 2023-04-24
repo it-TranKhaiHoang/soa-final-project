@@ -16,6 +16,7 @@ const Scores = new Schema(
         },
         status: {
             type: String,
+            default: 'pending',
             required: true,
         },
         score: {

@@ -34,6 +34,10 @@ const SchoolStaff = new Schema({
         type: Boolean,
         default: false,
     },
+    classHomeroom: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Class',
+    },
 });
 
 module.exports = mongoose.model('SchoolStaff', SchoolStaff);

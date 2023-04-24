@@ -13,7 +13,7 @@ function comparePassword(req, res, user, password) {
             const token = jwt.sign({ _id: user._id }, JWT_SECRET);
             req.session.user = user;
             req.session.token = token;
-            res.header('x-auth-token', token).json({ message: 'Login successful.', token: token });
+            res.header('x-auth-token', token).json({ message: 'Login successful.', token: token, user: user });
         })
         .catch((err) => res.status(500).json({ error: err }));
 }

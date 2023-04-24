@@ -5,7 +5,6 @@ const Scores = new Schema(
     {
         student: { type: mongoose.Types.ObjectId, ref: 'Student' },
         subject: { type: mongoose.Types.ObjectId, ref: 'Subject' },
-
         semester: {
             type: String,
             required: true,
@@ -15,13 +14,17 @@ const Scores = new Schema(
             type: Number,
             required: true,
         },
-        verifiedAt: {
-            type: Date,
+        status: {
+            type: String,
             required: true,
         },
         score: {
             type: String,
             required: true,
+        },
+        levelAchieved: {
+            type: String,
+            enum: ['H', 'T', 'K'],
         },
     },
     { timestamps: true },

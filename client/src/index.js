@@ -19,19 +19,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine(
-  'hbs',
-  handlebars.engine({
-    extname: 'hbs',
-    helpers: {
-      eq: function (a, b, options) {
-        if (a === b) return options.fn(this);
-        return options.inverse(this);
-      },
-      let: function (name, value, options) {
-        options.data.root[name] = value;
-      },
-    },
-  })
+    'hbs',
+    handlebars.engine({
+        extname: 'hbs',
+        helpers: {
+            eq: function (a, b, options) {
+                if (a === b) return options.fn(this);
+                return options.inverse(this);
+            },
+            let: function (name, value, options) {
+                options.data.root[name] = value;
+            },
+        },
+    }),
 );
 
 app.set('view engine', 'hbs');

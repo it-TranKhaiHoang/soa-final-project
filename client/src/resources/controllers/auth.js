@@ -10,7 +10,7 @@ const auth = {
             .then((response) => response.json())
             .then((data) => {
                 if (data.token) {
-                    req.user = data.user;
+                    req.session.user = data.user;
                     req.session.token = data.token;
                     if (data.user.studentID) {
                         res.redirect('/#student');
@@ -18,7 +18,7 @@ const auth = {
                         if (data.user.position === 'principal') {
                             res.redirect('/classroom');
                         } else if (data.user.position === 'teacher') {
-                            res.redirect('/#teacher');
+                            res.redirect('/classroom');
                         } else {
                             res.redirect('/#parent');
                         }

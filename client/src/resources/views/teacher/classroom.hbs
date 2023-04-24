@@ -1,53 +1,100 @@
 {{let 'user' 'teacher'}}
 <section class='mb-4'>
-    <table id='example' class='table table-hover' style='width:100%'>
+    <table id='ListStudentTable' class='table table-hover' style='width:100%'>
         <thead>
             <tr>
                 <th>Student ID</th>
                 <th>Full name</th>
+                <th>Parent</th>
                 <th>Birth</th>
                 <th>Gender</th>
                 <th>Address</th>
-                <th>Parent</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Hermione Butler</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>47</td>
-                <td>2011-03-21</td>
-                <td>$356,250</td>
-            </tr>
-            <tr>
-                <td>Lael Greer</td>
-                <td>Systems Administrator</td>
-                <td>London</td>
-                <td>21</td>
-                <td>2009-02-27</td>
-                <td>$103,500</td>
-            </tr>
-            <tr>
-                <td>Jonas Alexander</td>
-                <td>Developer</td>
-                <td>San Francisco</td>
-                <td>30</td>
-                <td>2010-07-14</td>
-                <td>$86,500</td>
-            </tr>
-            <tr>
-                <td>Shad Decker</td>
-                <td>Regional Director</td>
-                <td>Edinburgh</td>
-                <td>51</td>
-                <td>2008-11-13</td>
-                <td>$183,000</td>
-            </tr>
+            {{#each students}}
+                <tr>
+                    <td class='fw-bold mb-1'>{{studentID}}</td>
+                    <td class='fw-bold mb-1'>{{fullname}}</td>
+                    <td>
+                        <a
+                            class='fw-bold mb-1'
+                            type='button'
+                            data-mdb-toggle='modal'
+                            data-mdb-target='#studentModal{{_id}}'
+                        >
+                            {{parent.fullname}}
+                        </a>
+                    </td>
+                    <td>{{birth}}</td>
+                    <td>{{gender}}</td>
+                    <td>{{address}}</td>
+
+                </tr>
+            {{/each}}
         </tbody>
     </table>
 </section>
+<!-- Student Modal -->
+{{#each students}}
+    <div
+        class='modal fade'
+        id='studentModal{{_id}}'
+        tabindex='-1'
+        aria-labelledby='studentModal{{_id}}Label'
+        aria-hidden='true'
+    >
+        <div class='modal-dialog modal-lg'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <h5 class='modal-title' id='exampleModalLabel'>Parent Information</h5>
+                    <button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
+                </div>
+                <div class='modal-body'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <div class='d-flex justify-content-between align-items-center'>
+                                <div class='d-flex align-items-center'>
+                                    <img
+                                        src='https://www.gravatar.com/avatar/{{parent.email}}?s=200&r=pg&d=retro'
+                                        alt=''
+                                        style='width: 45px; height: 45px'
+                                        class='rounded-circle'
+                                    />
+                                    <div class='ms-3'>
+                                        <p class='fw-bold mb-1'>{{parent.fullname}}</p>
+                                        <p class='text-muted mb-0'>{{parent.email}}</p>
+                                        <p class='text-muted mb-0'>{{parent.phone}}</p>
+                                        <p class='text-muted mb-0'>{{parent.address}}</p>
 
+                                    </div>
+                                </div>
+                                <span class='badge rounded-pill badge-success'>Active</span>
+                            </div>
+                        </div>
+                        <div class='card-footer border-0 bg-light p-2 d-flex justify-content-around'>
+                            <a
+                                class='btn btn-link m-0 text-reset'
+                                href='mailto: {{parent.email}}'
+                                role='button'
+                                data-ripple-color='primary'
+                            >Message<i class='fas fa-envelope ms-2'></i></a>
+                            <a
+                                class='btn btn-link m-0 text-reset'
+                                href='tel: {{parent.phone}}'
+                                role='button'
+                                data-ripple-color='primary'
+                            >Call<i class='fas fa-phone ms-2'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}
 <script>
 
 </script>

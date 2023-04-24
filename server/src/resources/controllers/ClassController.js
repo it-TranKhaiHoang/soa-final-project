@@ -40,8 +40,11 @@ const ClassController = {
         const { name, currentYear, teacher, grade } = req.body;
         ClassService.create({ name, currentYear, teacher, grade })
             .then((c) => {
-                SchoolStaffService.update(req.params.id, { isHomeroom: true, classHomeroom: c._id })
-                    .then(() => {
+                SchoolStaffService.getOneByID(teacher)
+                    .then((schoolStaff) => {
+                        schoolStaff.isHomeroom = true;
+                        schoolStaff.classHomeroom = c._id;
+                        schoolStaff.save();
                         res.status(201).json({ message: 'New class has been created successfully' });
                     })
                     .catch((err) => {

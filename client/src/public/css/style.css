@@ -37,3 +37,25 @@ body {
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
+.dt-button {
+    background-color: rgba(51, 51, 51, 0.05) !important;
+    border-radius: 8px !important;
+    border-width: 0 !important;
+    color: #333333 !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    font-family: 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 20px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    text-align: center !important;
+    transition: all 200ms !important;
+    vertical-align: baseline !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    touch-action: manipulation !important;
+}

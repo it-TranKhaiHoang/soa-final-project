@@ -10,7 +10,18 @@ router.get('/classroom', (req, res) => {
         headers: { 'Content-Type': 'application/json' },
     }).then(async (result) => {
         result = await result.json();
-        res.render('teacher/classroom', {students: result});
+        res.render('teacher/classroom', { students: result });
+    });
+});
+
+router.get('/attendance', (req, res) => {
+    const user = req.session.user;
+    fetch(API_URL + `student/${user.classHomeroom}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    }).then(async (result) => {
+        result = await result.json();
+        res.render('teacher/attendance', { students: result });
     });
 });
 

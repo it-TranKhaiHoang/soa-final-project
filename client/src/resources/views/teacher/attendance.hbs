@@ -1,50 +1,77 @@
 <!-- Section: Main chart -->
 <section class='mb-4'>
-  <table id='example' class='table table-hover' style='width:100%'>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Age</th>
-        <th>Start date</th>
-        <th>Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Hermione Butler</td>
-        <td>Regional Director</td>
-        <td>London</td>
-        <td>47</td>
-        <td>2011-03-21</td>
-        <td>$356,250</td>
-      </tr>
-      <tr>
-        <td>Lael Greer</td>
-        <td>Systems Administrator</td>
-        <td>London</td>
-        <td>21</td>
-        <td>2009-02-27</td>
-        <td>$103,500</td>
-      </tr>
-      <tr>
-        <td>Jonas Alexander</td>
-        <td>Developer</td>
-        <td>San Francisco</td>
-        <td>30</td>
-        <td>2010-07-14</td>
-        <td>$86,500</td>
-      </tr>
-      <tr>
-        <td>Shad Decker</td>
-        <td>Regional Director</td>
-        <td>Edinburgh</td>
-        <td>51</td>
-        <td>2008-11-13</td>
-        <td>$183,000</td>
-      </tr>
-    </tbody>
-  </table>
+    <table id='listStudentCheckAttend' class='table table-hover' style='width:100%'>
+        <thead>
+            <tr>
+                <th>Attend</th>
+                <th>Student ID</th>
+                <th>Full name</th>
+                <th>Description</th>
+                <th></th>
+                {{! <th>Gender</th>
+                <th>Address</th> }}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each students}}
+                <tr>
+                    <td></td>
+                    <td class='fw-bold mb-1'>{{studentID}}</td>
+                    <td class='fw-bold mb-1'>{{fullname}}</td>
+                    <td id='{{studentID}}'></td>
+                    <td>
+                        <button
+                            type='button'
+                            class='btn btn-primary'
+                            data-mdb-toggle='modal'
+                            data-mdb-target='#addDesc{{studentID}}'
+                        >
+                            Add Description
+                        </button>
+                    </td>
+                    {{!-- <td>{{birth}}</td>
+                    <td>{{gender}}</td>
+                    <td>{{address}}</td> --}}
+
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </section>
 <!-- Section: Main chart -->
+
+{{#each students}}
+    <!-- Modal -->
+    <div
+        class='modal fade'
+        id='addDesc{{studentID}}'
+        tabindex='-1'
+        aria-labelledby='addDesc{{studentID}}Label'
+        aria-hidden='true'
+    >
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <h5 class='modal-title' id='addDesc{{studentID}}Label'>Description</h5>
+                    <button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
+                </div>
+                <div class='modal-body'>
+                    <!-- Message input -->
+                    <div class='form-outline mb-4'>
+                        <textarea class='form-control' id='desc{{studentID}}' rows='4'></textarea>
+                        <label class='form-label' for='desc{{studentID}}'>Description</label>
+                    </div>
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>
+                    <button
+                        type='button'
+                        onclick="fillDescription('{{studentID}}')"
+                        data-mdb-dismiss='modal'
+                        class='btn btn-primary'
+                    >Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}

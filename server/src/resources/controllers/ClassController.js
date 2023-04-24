@@ -1,4 +1,5 @@
 const ClassService = require('../services/ClassService');
+const SchoolStaffService = require('../services/SchoolStaffService');
 const StudentService = require('../services/StudentService');
 const ClassController = {
     getAllList: (req, res, next) => {
@@ -38,8 +39,15 @@ const ClassController = {
     postCreate: (req, res, next) => {
         const { name, currentYear, teacher, grade } = req.body;
         ClassService.create({ name, currentYear, teacher, grade })
-            .then(() => {
-                res.status(201).json({ message: 'New class has been created successfully' });
+            .then((c) => {
+                SchoolStaffService.update(req.params.id, { isHomeroom: true, classHomeroom: c._id })
+                    .then(() => {
+                        res.status(201).json({ message: 'New class has been created successfully' });
+                    })
+                    .catch((err) => {
+                        res.status(500);
+                        res.json({ message: err });
+                    });
             })
             .catch((err) => {
                 res.status(500).json({ error: err });

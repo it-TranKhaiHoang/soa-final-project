@@ -30,20 +30,7 @@
     <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
-    <div class='container-fluid'>
-      {{#eq user 'principal'}}
-        {{> principalHeader}}
-      {{else eq user 'teacher'}}
-        {{> teacherHeader}}
-      {{else}}
-        {{> studentHeader}}
-      {{/eq}}
-      <main style='margin-top: 58px'>
-        <div class='container pt-4'>
-          {{{body}}}
-        </div>
-      </main>
-    </div>
+    {{{body}}}
     <!-- MDB -->
     <script
       type='text/javascript'

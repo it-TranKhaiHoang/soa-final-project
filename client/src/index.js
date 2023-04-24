@@ -8,6 +8,7 @@ const session = require('express-session');
 const flash = require('express-flash');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const indexRouter = require('./resources/routers/index');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,26 +19,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine(
-    'hbs',
-    handlebars.engine({
-        extname: 'hbs',
-        helpers: {
-            isManager: (val, options) => {
-                if (val == 'manager') return options.fn(this);
-            },
-            ifEquals: (item, activeItem, options) => {
-                return item == activeItem ? options.fn(this) : options.inverse(this);
-            },
-        },
-    }),
+  'hbs',
+  handlebars.engine({
+    extname: 'hbs',
+    helpers: {
+      eq: function (a, b, options) {
+        if (a === b) return options.fn(this);
+        return options.inverse(this);
+      },
+      let: function (name, value, options) {
+        options.data.root[name] = value;
+      },
+    },
+  })
 );
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
-app.get('/', (req, res) => {
-    res.render('pages/home');
-});
 
 // Router
+app.use('/', indexRouter);
 
 app.listen(port, () => console.log('Client started in http://localhost:3000'));

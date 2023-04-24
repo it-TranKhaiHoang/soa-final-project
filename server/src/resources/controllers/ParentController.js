@@ -53,7 +53,18 @@ const ParentController = {
                 res.status(500).json({ error: err });
             });
     },
-    putUpdate: (req, res, next) => {},
+    putUpdate: (req, res, next) => {
+        const { email, fullname, phone, password, address } = req.body;
+        ParentService.update(req.params.id, { email, fullname, password: hashPassword(password), phone, address })
+            .then(() => {
+                res.status(200);
+                res.json({ message: 'Update Successfully' });
+            })
+            .catch((err) => {
+                res.status(500);
+                res.json({ message: err });
+            });
+    },
     getListAll: (req, res, next) => {
         ParentService.getList({}, {}, {}, 'student')
             .then((parents) => {

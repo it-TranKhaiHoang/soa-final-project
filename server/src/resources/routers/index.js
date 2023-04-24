@@ -9,6 +9,7 @@ const SchoolStaffRouter = require('../routers/SchoolStaffRouter');
 const ScoresRouter = require('../routers/ScoresRouter');
 const StudentRouter = require('../routers/StudentRouter');
 const SubjectRouter = require('../routers/SubjectRouter');
+const UserRouter = require('../routers/UserRouter');
 
 router.use('/ancm', AnnouncementRouter);
 router.use('/attend', AttendanceRouter);
@@ -19,5 +20,6 @@ router.use('/SchoolStaff', SchoolStaffRouter);
 router.use('/scores', ScoresRouter);
 router.use('/student', StudentRouter);
 router.use('/subjectRouter', SubjectRouter);
+router.use('/user', UserRouter);
 
 module.exports = router;

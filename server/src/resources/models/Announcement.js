@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 const Announcement = new Schema(
     {
         sendBy: { type: mongoose.Types.ObjectId, ref: 'SchoolStaff' },
-        sendTo: { type: mongoose.Types.ObjectId, ref: 'Student' },
+        sendTo: { type: [String], required: true },
         type: { type: String, required: true },
+        role: { type: String, required: true, enum: ['teachers', 'parents', 'students', 'all'] },
         title: {
             type: String,
             required: true,

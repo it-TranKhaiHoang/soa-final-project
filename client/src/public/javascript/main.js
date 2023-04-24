@@ -1,5 +1,12 @@
 $(document).ready(function () {
-    $('#ListStudentTable').DataTable();
+    $('#ListStudentTable').DataTable({
+        columnDefs: [
+            {
+                targets: 3,
+                render: DataTable.render.datetime('Do MMM YYYY'),
+            },
+        ],
+    });
 });
 
 $(document).ready(function () {
@@ -23,6 +30,7 @@ $(document).ready(function () {
                 text: 'Save data',
                 action: function () {
                     let count = table.rows({ selected: true }).data().toArray();
+                    let data = table.$('input, select').serialize();
                     console.log(count);
                     // events.prepend( '<div>'+count+' row(s) selected</div>' );
                 },
@@ -43,6 +51,6 @@ $(document).ready(function () {
     });
 });
 
-function fillDescription(id) {
-    document.getElementById(id).innerText = document.getElementById('desc' + id).value;
-}
+// function fillDescription(id) {
+//     document.getElementById(id).innerText = document.getElementById('desc' + id).value;
+// }

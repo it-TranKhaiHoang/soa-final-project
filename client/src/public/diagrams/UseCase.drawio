@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-24T08:05:05.135Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 OPR/97.0.0.0" etag="-KclzAqbZGMzsqBb0P56" version="21.2.1" type="device">
+<mxfile host="app.diagrams.net" modified="2023-04-24T09:37:02.441Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 OPR/97.0.0.0" etag="s2c18VQHo1qPMLb5rR23" version="21.2.1" type="device">
   <diagram name="Page-1" id="8CCxXFG7EDy1ZWGpXJ0g">
     <mxGraphModel dx="1050" dy="550" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -198,7 +198,7 @@
             <mxPoint x="475" y="640" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bnvPDE9fhh-Au9ItPn83-169" value="&lt;p&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;Primary School Communication Module&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=20;fontFamily=Architects Daughter;" parent="1" vertex="1">
+        <mxCell id="bnvPDE9fhh-Au9ItPn83-169" value="&lt;p&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;Primary School Class Management Module&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=20;fontFamily=Architects Daughter;" parent="1" vertex="1">
           <mxGeometry x="215" y="70" width="500" height="30" as="geometry" />
         </mxCell>
         <mxCell id="bnvPDE9fhh-Au9ItPn83-171" value="&lt;p style=&quot;line-height: 70%;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;View Statistics&lt;/font&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;shadow=0;strokeWidth=2;rounded=1;fillColor=#dae8fc;align=center;strokeColor=#6c8ebf;" parent="1" vertex="1">

@@ -1,4 +1,4 @@
-<!-- Section: Main chart -->
+{{let 'user' 'teacher'}}
 <section class='mb-4'>
     <table id='listStudentCheckAttend' class='table table-hover' style='width:100%'>
         <thead>
@@ -7,7 +7,7 @@
                 <th>Student ID</th>
                 <th>Full name</th>
                 <th>Description</th>
-                {{!-- <th></th> --}}
+                {{! <th></th> }}
                 {{! <th>Gender</th>
                 <th>Address</th> }}
             </tr>
@@ -18,7 +18,7 @@
                     <td></td>
                     <td class='fw-bold mb-1'>{{studentID}}</td>
                     <td class='fw-bold mb-1'>{{fullname}}</td>
-                    <td id='{{studentID}}'><input type="text" id="row-1-position" name="row-1-position" value="System Architect"></td>
+                    <td><input /></td>
                     {{!-- <td>
                         <button
                             type='button'
@@ -64,8 +64,12 @@
                 </div>
                 <div class='modal-footer'>
                     <button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>
-                    <button type='button' onclick="fillDescription('{{studentID}}')" data-mdb-dismiss='modal' class='btn btn-primary'>Save
-                        changes</button>
+                    <button
+                        type='button'
+                        onclick="fillDescription('{{studentID}}')"
+                        data-mdb-dismiss='modal'
+                        class='btn btn-primary'
+                    >Save changes</button>
                 </div>
             </div>
         </div>

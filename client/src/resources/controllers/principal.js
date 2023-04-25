@@ -2,6 +2,22 @@ const API_URL = process.env.API_URL;
 const axios = require('axios');
 
 const principal = {
+    dashboard: (req, res, next) => {
+        res.redirect('/p/classroom');
+    },
+
+    getTeacher: (req, res, next) => {
+        res.render('principal/teacher', { title: 'Teacher' });
+    },
+
+    getAnnouncement: (req, res, next) => {
+        res.render('principal/announcement', { title: 'Announcement' });
+    },
+
+    getSchedule: (req, res, next) => {
+        res.render('principal/schedule', { title: 'Schedule' });
+    },
+
     getClassroom: async (req, res, next) => {
         try {
             const success = req.flash('success');
@@ -22,7 +38,6 @@ const principal = {
 
             res.render('principal/classroom', {
                 title: 'Classroom',
-                user: 'principal',
                 grade,
                 listTeacher,
                 listClass: list,

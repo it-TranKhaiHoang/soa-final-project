@@ -1,26 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
-const qs = require('qs');
-const { getClassroom, createClass } = require('../controllers/principal');
+const { principalController } = require('../controllers');
 
-router.get('/', (req, res, next) => {
-    res.redirect('/p/classroom');
-});
+router.get('/', principalController.dashboard);
 
-router.get('/classroom', getClassroom);
-router.post('/classroom', createClass);
+router.get('/classroom', principalController.getClassroom);
+router.post('/classroom', principalController.createClass);
 
-router.get('/teacher', (req, res, next) => {
-    res.render('principal/teacher', { user: 'principal', title: 'Teacher' });
-});
+router.get('/teacher', principalController.getTeacher);
 
-router.get('/announcement', (req, res, next) => {
-    res.render('principal/announcement', { user: 'principal', title: 'Announcement' });
-});
+router.get('/announcement', principalController.getAnnouncement);
 
-router.get('/schedule', (req, res, next) => {
-    res.render('principal/schedule', { user: 'principal', title: 'Schedule' });
-});
+router.get('/schedule', principalController.getSchedule);
 
 module.exports = router;

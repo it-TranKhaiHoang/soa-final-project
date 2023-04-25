@@ -23,15 +23,15 @@ router.get('/addStudent/:classID/:studentID', async (req, res) => {
         .then(function (response) {
             if (response) {
                 req.flash('success', 'Add student to class successfully');
-                res.redirect('/principal/classroom');
+                res.redirect('/p/classroom');
             } else {
                 req.flash('error', 'Add student fail ');
-                res.redirect('/principal/classroom');
+                res.redirect('/p/classroom');
             }
         })
         .catch(function (error) {
             req.flash('error', 'Add student fail ' + error);
-            res.redirect('/principal/classroom');
+            res.redirect('/p/classroom');
         });
 });
 

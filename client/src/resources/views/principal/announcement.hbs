@@ -4,33 +4,42 @@
     ></i>
     Create new class</button> }}
 <hr class='hr' />
+{{#if success}}
+    <div class='alert alert-success d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{success}}
+        </div>
+    </div>
+{{/if}}
+{{#if error}}
+    <div class='alert alert-danger d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{error}}
+        </div>
+    </div>
+{{/if}}
 <section class='text-center'>
     <div class='row'>
-        <div class='col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative'>
-            <i class='fas fa-cubes fa-3x text-primary mb-4'></i>
-            <h5 class='text-primary fw-bold mb-3'>5000+</h5>
-            <h6 class='fw-normal mb-0'>Components</h6>
+        <div class='col-lg-4 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative'>
+            <i class='fa-solid fa-comments fa-3x text-primary mb-4'></i>
+            <h5 class='text-primary fw-bold mb-3'>{{countAnnouncement}}+</h5>
+            <h6 class='fw-normal mb-0'>Announcement</h6>
             <div class='vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0'></div>
         </div>
 
-        <div class='col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative'>
-            <i class='fas fa-layer-group fa-3x text-primary mb-4'></i>
-            <h5 class='text-primary fw-bold mb-3'>490+</h5>
-            <h6 class='fw-normal mb-0'>Design blocks</h6>
+        <div class='col-lg-4 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative'>
+            <i class='fa-solid fa-business-time fa-3x text-primary mb-4'></i>
+            <h5 class='text-primary fw-bold mb-3'>{{countRemind}}+</h5>
+            <h6 class='fw-normal mb-0'>Remind</h6>
             <div class='vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0'></div>
         </div>
-
-        <div class='col-lg-3 col-md-6 mb-5 mb-md-0 position-relative'>
-            <i class='fas fa-image fa-3x text-primary mb-4'></i>
-            <h5 class='text-primary fw-bold mb-3'>100+</h5>
-            <h6 class='fw-normal mb-0'>Templates</h6>
+        <div class='col-lg-4 col-md-6 mb-5 mb-md-0 position-relative'>
+            <i class='fa-solid fa-envelope-open-text fa-3x text-primary mb-4'></i>
+            <h5 class='text-primary fw-bold mb-3'>{{countInvitation}}+</h5>
+            <h6 class='fw-normal mb-0'>Invitation</h6>
             <div class='vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0'></div>
-        </div>
-
-        <div class='col-lg-3 col-md-6 mb-5 mb-md-0 position-relative'>
-            <i class='fas fa-plug fa-3x text-primary mb-4'></i>
-            <h5 class='text-primary fw-bold mb-3'>28</h5>
-            <h6 class='fw-normal mb-0'>Plugins</h6>
         </div>
     </div>
 </section>
@@ -78,23 +87,30 @@
                 <h2 class='fw-bold mb-2 text-uppercase'>Create Announcement</h2>
                 <hr class='hr' />
 
-                <form>
+                <form method='post' action=''>
                     <!-- Name input -->
                     <div class='form-outline mb-4'>
                         <input type='text' id='form4Example1' name='title' class='form-control' />
                         <label class='form-label' for='form4Example1'>Title</label>
                     </div>
-
+                    <input class='d-none' type='text' name='sendTo' id='sendTo' />
                     <select class='form-select mb-4' name='type' aria-label='Default select example'>
                         <option selected>Choose type</option>
                         <option value='announcement'>Announcement</option>
                         <option value='remind'>Remind</option>
                         <option value='invitation'>Invitation</option>
                     </select>
+                    <select class='form-select mb-4' name='role' aria-label='Default select example'>
+                        <option selected>Who can see this announcement</option>
+                        <option value='all'>All</option>
+                        <option value='teachers'>Teacher</option>
+                        <option value='parents'>Parents</option>
+                        <option value='students'>Student</option>
+                    </select>
 
                     <!-- Message input -->
                     <div class='form-outline mb-4'>
-                        <textarea class='form-control' id='form4Example3' rows='4'></textarea>
+                        <textarea class='form-control' id='form4Example3' name='body' rows='4'></textarea>
                         <label class='form-label' for='form4Example3'>Message</label>
                     </div>
                     <!-- Submit button -->
@@ -136,48 +152,21 @@
                                 <tr>
                                     <th></th>
                                     <th>Full name</th>
-                                    <th>Class</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th class='d-none'>Full name</th>
+                                    <th class='d-none'>ID</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>Hermione Butler</td>
-                                    <td>1A</td>
-                                    <td>hoangbo74@gmail.com</td>
-                                    <td>0123123123</td>
-                                    <td class='d-none'>London</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Lael Greer</td>
-                                    <td>1A</td>
-                                    <td>hoangbo74@gmail.com</td>
-                                    <td>0123123123</td>
-                                    <td class='d-none'>London</td>
-
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Jonas Alexander</td>
-                                    <td>1A</td>
-                                    <td>hoangbo74@gmail.com</td>
-                                    <td>0123123123</td>
-                                    <td class='d-none'>San Francisco</td>
-
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Shad Decker</td>
-                                    <td>1A</td>
-                                    <td>hoangbo74@gmail.com</td>
-                                    <td>0123123123</td>
-                                    <td class='d-none'>Edinburgh</td>
-
-                                </tr>
+                                {{#each listTeacher}}
+                                    <tr>
+                                        <td></td>
+                                        <td>{{fullname}}</td>
+                                        <td>{{email}}</td>
+                                        <td>{{phone}}</td>
+                                        <td class='d-none'>{{_id}}</td>
+                                    </tr>
+                                {{/each}}
                             </tbody>
                         </table>
                     </div>
@@ -194,41 +183,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>Hermione Butler</td>
-                                    <td>Regional Director</td>
-                                    <td>hoangbo74@gmail.com</td>
-                                    <td>0123123123</td>
-                                    <td class='d-none'>London</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Lael Greer</td>
-                                    <td>Systems Administrator</td>
-                                    <td>hoangbo74@gmail.com</td>
-                                    <td>0123123123</td>
-                                    <td class='d-none'>London</td>
-
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Jonas Alexander</td>
-                                    <td>Developer</td>
-                                    <td>hoangbo74@gmail.com</td>
-                                    <td>0123123123</td>
-                                    <td class='d-none'>San Francisco</td>
-
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Shad Decker</td>
-                                    <td>Regional Director</td>
-                                    <td>hoangbo74@gmail.com</td>
-                                    <td>0123123123</td>
-                                    <td class='d-none'>Edinburgh</td>
-
-                                </tr>
+                                {{#each listParent}}
+                                    <tr>
+                                        <td></td>
+                                        <td>{{fullname}}</td>
+                                        <td>{{student.fullname}}</td>
+                                        <td>{{email}}</td>
+                                        <td>{{phone}}</td>
+                                        <td class='d-none'>{{_id}}</td>
+                                    </tr>
+                                {{/each}}
                             </tbody>
                         </table>
                     </div>
@@ -250,34 +214,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>London</td>
-                        <td>47</td>
-                        <td>Dynamic tabbed interfaces, as described in the WAI ARIA Authoring Practices, require role="tablist", role="tab", role="tabpanel", and additional aria- attributes in order to convey their structure, functionality and current state to users of assistive technologies (such as screen readers). As a best practice, we recommend using <button> elements for the tabs, as these are controls that trigger a dynamic change, rather than links that navigate to a new page or location.</td>
-                        <td>2011-03-21</td>
-                        <td>$356,250</td>
-                    </tr>
-                    <tr>
-                        <td>London</td>
-                        <td>21</td>
-                        <td>Dynamic tabbed interfaces, as described in the WAI ARIA Authoring Practices, require role="tablist", role="tab", role="tabpanel", and additional aria- attributes in order to convey their structure, functionality and current state to users of assistive technologies (such as screen readers). As a best practice, we recommend using <button> elements for the tabs, as these are controls that trigger a dynamic change, rather than links that navigate to a new page or location.</td>
-                        <td>2009-02-27</td>
-                        <td>$103,500</td>
-                    </tr>
-                    <tr>
-                        <td>San Francisco</td>
-                        <td>30</td>
-                        <td>Dynamic tabbed interfaces, as described in the WAI ARIA Authoring Practices, require role="tablist", role="tab", role="tabpanel", and additional aria- attributes in order to convey their structure, functionality and current state to users of assistive technologies (such as screen readers). As a best practice, we recommend using <button> elements for the tabs, as these are controls that trigger a dynamic change, rather than links that navigate to a new page or location.</td>
-                        <td>2010-07-14</td>
-                        <td>$86,500</td>
-                    </tr>
-                    <tr>
-                        <td>Edinburgh</td>
-                        <td>51</td>
-                        <td>Dynamic tabbed interfaces, as described in the WAI ARIA Authoring Practices, require role="tablist", role="tab", role="tabpanel", and additional aria- attributes in order to convey their structure, functionality and current state to users of assistive technologies (such as screen readers). As a best practice, we recommend using <button> elements for the tabs, as these are controls that trigger a dynamic change, rather than links that navigate to a new page or location.</td>
-                        <td>2008-11-13</td>
-                        <td>$183,000</td>
-                    </tr>
+                    {{#each history}}
+                        <tr>
+                            <td>{{title}}</td>
+                            <td>{{type}}</td>
+                            <td>{{body}}</td>
+                            <td>{{formatDate createdAt 'ddd, MMM D, YYYY'}}</td>
+                            <td>{{status}}</td>
+                        </tr>
+                    {{/each}}
+
                 </tbody>
             </table>
         </section>

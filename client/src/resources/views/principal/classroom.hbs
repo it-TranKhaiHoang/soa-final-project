@@ -13,6 +13,14 @@
         </div>
     </div>
 {{/if}}
+{{#if error}}
+    <div class='alert alert-danger d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{error}}
+        </div>
+    </div>
+{{/if}}
 <!-- Tabs navs -->
 <ul class='nav nav-pills mb-3' id='ex-with-icons' role='tablist'>
     <li class='nav-item' role='presentation'>
@@ -111,7 +119,7 @@
                                 type='button'
                                 class='btn btn-success'
                                 data-mdb-toggle='modal'
-                                data-mdb-target='#modalAdd'
+                                data-mdb-target='#modalAdd{{_id}}'
                             >
                                 <i class='fa-solid fa-user-plus'></i>
                                 Add students
@@ -156,7 +164,7 @@
                                 type='button'
                                 class='btn btn-success'
                                 data-mdb-toggle='modal'
-                                data-mdb-target='#modalAdd'
+                                data-mdb-target='#modalAdd{{_id}}'
                             >
                                 <i class='fa-solid fa-user-plus'></i>
                                 Add students
@@ -201,7 +209,7 @@
                                 type='button'
                                 class='btn btn-success'
                                 data-mdb-toggle='modal'
-                                data-mdb-target='#modalAdd'
+                                data-mdb-target='#modalAdd{{_id}}'
                             >
                                 <i class='fa-solid fa-user-plus'></i>
                                 Add students
@@ -246,7 +254,7 @@
                                 type='button'
                                 class='btn btn-success'
                                 data-mdb-toggle='modal'
-                                data-mdb-target='#modalAdd'
+                                data-mdb-target='#modalAdd{{_id}}'
                             >
                                 <i class='fa-solid fa-user-plus'></i>
                                 Add students
@@ -291,7 +299,7 @@
                                 type='button'
                                 class='btn btn-success'
                                 data-mdb-toggle='modal'
-                                data-mdb-target='#modalAdd'
+                                data-mdb-target='#modalAdd{{_id}}'
                             >
                                 <i class='fa-solid fa-user-plus'></i>
                                 Add students
@@ -428,11 +436,11 @@
     </div>
 {{/each}}
 {{#each listClass}}
-    <div class='modal fade' id='modalAdd' tabindex='-1' aria-labelledby='modalAddLabel' aria-hidden='true'>
+    <div class='modal fade' id='modalAdd{{_id}}' tabindex='-1' aria-labelledby='modalAdd{{_id}}Label' aria-hidden='true'>
         <div class='modal-dialog modal-xl'>
             <div class='modal-content'>
                 <div class='modal-header'>
-                    <h5 class='modal-title' id='modalAddLabel'>Add student to class</h5>
+                    <h5 class='modal-title' id='modalAdd{{_id}}Label'>Add student to class</h5>
                     <button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
                 </div>
                 <div class='modal-body'>

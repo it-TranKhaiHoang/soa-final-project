@@ -57,9 +57,14 @@ $(document).ready(function () {
             {
                 text: 'Save data',
                 action: function () {
-                    let count = table.rows({ selected: true }).data().toArray();
-                    let data = table.$('input, select').serialize();
-                    console.log(count);
+                    let listParent = table.rows({ selected: true }).data().toArray();
+                    let arrayID = [];
+                    listParent.forEach((item) => {
+                        arrayID.push(item[4]);
+                    });
+                    let stringID = arrayID.join(',');
+                    console.log(stringID);
+                    $('#sendTo').val(stringID);
                 },
             },
         ],
@@ -75,6 +80,7 @@ $(document).ready(function () {
             selector: 'td:first-child',
         },
         order: [[1, 'asc']],
+        lengthMenu: [5, 10, 20, 50, 100, 200, 500],
     });
 });
 
@@ -98,15 +104,20 @@ $(document).ready(function () {
             {
                 text: 'Save data',
                 action: function () {
-                    let count = table.rows({ selected: true }).data().toArray();
-                    let data = table.$('input, select').serialize();
-                    console.log(count);
+                    let listParent = table.rows({ selected: true }).data().toArray();
+                    let arrayID = [];
+                    listParent.forEach((item) => {
+                        arrayID.push(item[5]);
+                    });
+                    let stringID = arrayID.join(',');
+                    $('#sendTo').val(stringID);
+                    console.log(stringID);
                 },
             },
         ],
         columnDefs: [
             {
-                orderable: false,
+                orderable: true,
                 className: 'select-checkbox',
                 targets: 0,
             },
@@ -116,6 +127,7 @@ $(document).ready(function () {
             selector: 'td:first-child',
         },
         order: [[1, 'asc']],
+        lengthMenu: [5, 10, 20, 50, 100, 200, 500],
     });
 });
 
@@ -160,6 +172,4 @@ $(document).ready(function () {
     });
 });
 
-// function fillDescription(id) {
-//     document.getElementById(id).innerText = document.getElementById('desc' + id).value;
-// }
+$('#listTeacher').DataTable({ columnDefs: [{ targets: 3, render: DataTable.render.datetime('Do MMM YYYY') }] });

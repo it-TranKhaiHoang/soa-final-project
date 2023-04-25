@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const page = ['classroom', 'teacher', 'schedule', 'announcement'];
+    const page = ['classroom', 'teacher', 'schedule', 'announcement', 'scoreboard', 'attendance'];
     for (const i of page) {
         if (location.pathname.split(i).length == 2) {
             $(`#${i}`).addClass('active');
@@ -151,9 +151,9 @@ $(document).ready(function () {
             {
                 text: 'Save data',
                 action: function () {
-                    let count = table.rows({ selected: true }).data().toArray();
-                    let data = table.$('input, select').serialize();
-                    console.log(count);
+                    const list = table.rows({ selected: false }).data().toArray();
+                    const idList = list.map((item) => item[1]);
+                    console.log(list);
                 },
             },
         ],

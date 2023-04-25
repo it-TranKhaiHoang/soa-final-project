@@ -2,6 +2,69 @@ const API_URL = process.env.API_URL;
 const axios = require('axios');
 
 const principal = {
+    dashboard: (req, res, next) => {
+        res.redirect('/p/classroom');
+    },
+
+    getTeacher: async (req, res, next) => {
+        const success = req.flash('success') || '';
+        const error = req.flash('error') || '';
+        const user = req.session.acc;
+        let listTeacher;
+        listTeacher = (await axios.get(`${API_URL}SchoolStaff/teacher`)).data;
+        const listFree = listTeacher.filter((item) => {
+            return !item.isHomeroom;
+        });
+        const listHomeroom = listTeacher.filter((item) => {
+            return item.isHomeroom;
+        });
+        res.render('principal/teacher', {
+            title: 'Teacher',
+            user: 'principal',
+            error,
+            success,
+            listFree,
+            listHomeroom,
+            listTeacher,
+        });
+    },
+
+    getAnnouncement: async (req, res, next) => {
+        const user = req.session.acc;
+        let listParent;
+        let listTeacher;
+        let history;
+        let countAnnouncement = 0;
+        let countRemind = 0;
+        let countInvitation = 0;
+        listTeacher = (await axios.get(`${API_URL}SchoolStaff/teacher`)).data;
+        listParent = (await axios.get(`${API_URL}parent/list`)).data;
+        history = (await axios.get(`${API_URL}ancm/list/sent/${user._id}`)).data;
+        history.forEach((element) => {
+            if (element.type == 'remind') countRemind++;
+            else if (element.type == 'announcement') countAnnouncement++;
+            else countInvitation++;
+        });
+        const success = req.flash('success') || '';
+        const error = req.flash('error') || '';
+        res.render('principal/announcement', {
+            user: 'principal',
+            error,
+            success,
+            listTeacher,
+            listParent,
+            history,
+            countAnnouncement,
+            countInvitation,
+            countRemind,
+        });
+        res.render('principal/announcement', { title: 'Announcement' });
+    },
+
+    getSchedule: (req, res, next) => {
+        res.render('principal/schedule', { title: 'Schedule' });
+    },
+
     getClassroom: async (req, res, next) => {
         try {
             const success = req.flash('success');
@@ -22,7 +85,6 @@ const principal = {
 
             res.render('principal/classroom', {
                 title: 'Classroom',
-                user: 'principal',
                 grade,
                 listTeacher,
                 listClass: list,

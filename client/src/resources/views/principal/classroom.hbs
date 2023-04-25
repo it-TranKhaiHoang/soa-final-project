@@ -126,46 +126,183 @@
     </div>
     <div class='tab-pane fade' id='ex-with-icons-tabs-2' role='tabpanel' aria-labelledby='ex-with-icons-tab-2'>
         <div class='row'>
-            <div class='col-sm-6 mb-3'>
-                <div class='card'>
-                    <div class='card-body'>
-                        <h5 class='card-title'>Class Name</h5>
-                        <p class='card-text'><i class='fa-solid fa-chalkboard-user'></i> Teacher: </p>
-                        <p class='card-text'><i class='fa-solid fa-graduation-cap'></i> Number of student: </p>
-                        <p class='card-text'><i class='fa-solid fa-graduation-cap'></i> Curren year: </p>
-                        <a href='#' class='btn btn-primary'>View Detail</a>
-                        <p></p>
-                    </div>
-                    <div class='card-footer'>
-                        <small class='text-muted'>Last updated 3 mins ago</small>
+            {{#each grade2nd}}
+                <div class='col-sm-6 mb-3'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>{{name}}</h5>
+                            <p class='card-text'><i class='fa-solid fa-chalkboard-user'></i>
+                                Teacher:
+                                {{teacher.fullname}}
+                                - Email:
+                                <a href='mailto:{{teacher.email}}'>{{teacher.email}}</a>
+                                - Phone:
+                                <a href='tel:+{{teacher.phone}}'>{{teacher.phone}}</a></p>
+                            <p class='card-text'><i class='fa-solid fa-graduation-cap'></i>
+                                Number of student:
+                                {{students.length}}</p>
+                            <p class='card-text'><i class='fa-solid fa-graduation-cap'></i>
+                                Curren year:
+                                {{currentYear}}</p>
+
+                            <a
+                                type='button'
+                                data-mdb-toggle='modal'
+                                data-mdb-target='#modalClassDetail{{_id}}'
+                                class='btn btn-primary'
+                            >View Detail</a>
+                            <button
+                                type='button'
+                                class='btn btn-success'
+                                data-mdb-toggle='modal'
+                                data-mdb-target='#modalAdd'
+                            >
+                                <i class='fa-solid fa-user-plus'></i>
+                                Add students
+                            </button>
+                        </div>
+                        <div class='card-footer'>
+                            <small class='text-muted'>Last update {{formatDate createdAt 'ddd, MMM D, YYYY'}}</small>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class='col-sm-6 mb-3'>
-                <div class='card'>
-                    <div class='card-body'>
-                        <h5 class='card-title'>Class Name</h5>
-                        <p class='card-text'><i class='fa-solid fa-chalkboard-user'></i> Teacher: </p>
-                        <p class='card-text'><i class='fa-solid fa-graduation-cap'></i> Number of student: </p>
-                        <p class='card-text'><i class='fa-solid fa-graduation-cap'></i> Curren year: </p>
-                        <a href='#' class='btn btn-primary'>View Detail</a>
-                        <p></p>
-                    </div>
-                    <div class='card-footer'>
-                        <small class='text-muted'>Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
         </div>
     </div>
     <div class='tab-pane fade' id='ex-with-icons-tabs-3' role='tabpanel' aria-labelledby='ex-with-icons-tab-3'>
-        Tab 3 content
+        <div class='row'>
+            {{#each grade3rd}}
+                <div class='col-sm-6 mb-3'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>{{name}}</h5>
+                            <p class='card-text'><i class='fa-solid fa-chalkboard-user'></i>
+                                Teacher:
+                                {{teacher.fullname}}
+                                - Email:
+                                <a href='mailto:{{teacher.email}}'>{{teacher.email}}</a>
+                                - Phone:
+                                <a href='tel:+{{teacher.phone}}'>{{teacher.phone}}</a></p>
+                            <p class='card-text'><i class='fa-solid fa-graduation-cap'></i>
+                                Number of student:
+                                {{students.length}}</p>
+                            <p class='card-text'><i class='fa-solid fa-graduation-cap'></i>
+                                Curren year:
+                                {{currentYear}}</p>
+
+                            <a
+                                type='button'
+                                data-mdb-toggle='modal'
+                                data-mdb-target='#modalClassDetail{{_id}}'
+                                class='btn btn-primary'
+                            >View Detail</a>
+                            <button
+                                type='button'
+                                class='btn btn-success'
+                                data-mdb-toggle='modal'
+                                data-mdb-target='#modalAdd'
+                            >
+                                <i class='fa-solid fa-user-plus'></i>
+                                Add students
+                            </button>
+                        </div>
+                        <div class='card-footer'>
+                            <small class='text-muted'>Last update {{formatDate createdAt 'ddd, MMM D, YYYY'}}</small>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
     </div>
     <div class='tab-pane fade' id='ex-with-icons-tabs-4' role='tabpanel' aria-labelledby='ex-with-icons-tab-4'>
-        Tab 4 content
+        <div class='row'>
+            {{#each grade4th}}
+                <div class='col-sm-6 mb-3'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>{{name}}</h5>
+                            <p class='card-text'><i class='fa-solid fa-chalkboard-user'></i>
+                                Teacher:
+                                {{teacher.fullname}}
+                                - Email:
+                                <a href='mailto:{{teacher.email}}'>{{teacher.email}}</a>
+                                - Phone:
+                                <a href='tel:+{{teacher.phone}}'>{{teacher.phone}}</a></p>
+                            <p class='card-text'><i class='fa-solid fa-graduation-cap'></i>
+                                Number of student:
+                                {{students.length}}</p>
+                            <p class='card-text'><i class='fa-solid fa-graduation-cap'></i>
+                                Curren year:
+                                {{currentYear}}</p>
+
+                            <a
+                                type='button'
+                                data-mdb-toggle='modal'
+                                data-mdb-target='#modalClassDetail{{_id}}'
+                                class='btn btn-primary'
+                            >View Detail</a>
+                            <button
+                                type='button'
+                                class='btn btn-success'
+                                data-mdb-toggle='modal'
+                                data-mdb-target='#modalAdd'
+                            >
+                                <i class='fa-solid fa-user-plus'></i>
+                                Add students
+                            </button>
+                        </div>
+                        <div class='card-footer'>
+                            <small class='text-muted'>Last update {{formatDate createdAt 'ddd, MMM D, YYYY'}}</small>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
     </div>
     <div class='tab-pane fade' id='ex-with-icons-tabs-5' role='tabpanel' aria-labelledby='ex-with-icons-tab-5'>
-        Tab 5 content
+        <div class='row'>
+            {{#each grade5th}}
+                <div class='col-sm-6 mb-3'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>{{name}}</h5>
+                            <p class='card-text'><i class='fa-solid fa-chalkboard-user'></i>
+                                Teacher:
+                                {{teacher.fullname}}
+                                - Email:
+                                <a href='mailto:{{teacher.email}}'>{{teacher.email}}</a>
+                                - Phone:
+                                <a href='tel:+{{teacher.phone}}'>{{teacher.phone}}</a></p>
+                            <p class='card-text'><i class='fa-solid fa-graduation-cap'></i>
+                                Number of student:
+                                {{students.length}}</p>
+                            <p class='card-text'><i class='fa-solid fa-graduation-cap'></i>
+                                Curren year:
+                                {{currentYear}}</p>
+
+                            <a
+                                type='button'
+                                data-mdb-toggle='modal'
+                                data-mdb-target='#modalClassDetail{{_id}}'
+                                class='btn btn-primary'
+                            >View Detail</a>
+                            <button
+                                type='button'
+                                class='btn btn-success'
+                                data-mdb-toggle='modal'
+                                data-mdb-target='#modalAdd'
+                            >
+                                <i class='fa-solid fa-user-plus'></i>
+                                Add students
+                            </button>
+                        </div>
+                        <div class='card-footer'>
+                            <small class='text-muted'>Last update {{formatDate createdAt 'ddd, MMM D, YYYY'}}</small>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
     </div>
 </div>
 <!-- Tabs content -->
@@ -175,41 +312,43 @@
     <div class='modal-dialog modal-lg'>
         <div class='modal-content'>
             <div class='modal-header'>
-                <h5 class='modal-title' id='modalCreateClassLabel'>Modal title</h5>
+                <h5 class='modal-title' id='modalCreateClassLabel'>Create new class</h5>
                 <button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
             </div>
             <div class='modal-body'>
-                <form>
+                <form action="" method="post">
                     <!-- 2 column grid layout with text inputs for the first and last names -->
                     <div class='row mb-4'>
                         <div class='col'>
                             <div class='form-outline'>
-                                <input type='text' id='form6Example1' class='form-control' />
+                                <input type='text' id='form6Example1' name="name" class='form-control' />
                                 <label class='form-label' for='form6Example1'>Class name</label>
                             </div>
                         </div>
                         <div class='col'>
                             <div class='form-outline'>
-                                <input type='text' id='form6Example2' class='form-control' />
+                                <input type='text' id='form6Example2' name="currentYear" class='form-control' />
                                 <label class='form-label' for='form6Example2'>School year:</label>
                             </div>
                         </div>
                     </div>
                     <div class='row mb-4'>
                         <div class='col'>
-                            <select class='form-select' aria-label='Default select example'>
+                            <select class='form-select' name="grade" aria-label='Default select example'>
                                 <option selected>Choose grade</option>
-                                <option value='1'>One</option>
-                                <option value='2'>Two</option>
-                                <option value='3'>Three</option>
+                                <option value='1st'>1st Grade</option>
+                                <option value='2nd'>2nd Grade</option>
+                                <option value='3rd'>3nd Grade</option>
+                                <option value='4th'>4th Grade</option>
+                                <option value='5th'>5th Grade</option>
                             </select>
                         </div>
                         <div class='col'>
-                            <select class='form-select' aria-label='Default select example'>
+                            <select class='form-select' name="teacher" aria-label='Default select example'>
                                 <option selected>Choose homeroom teacher</option>
-                                <option value='1'>One</option>
-                                <option value='2'>Two</option>
-                                <option value='3'>Three</option>
+                                {{#each listTeacher}}
+                                <option value='{{_id}}'>{{fullname}}</option>
+                                {{/each}}
                             </select>
                         </div>
 

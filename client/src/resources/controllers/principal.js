@@ -18,7 +18,7 @@ const principal = {
         const listHomeroom = listTeacher.filter((item) => {
             return item.isHomeroom;
         });
-        res.render('principap/teacher', {
+        res.render('principal/teacher', {
             title: 'Teacher',
             user: 'principal',
             error,

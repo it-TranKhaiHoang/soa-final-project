@@ -20,6 +20,7 @@ const Announcement = new Schema(
         },
         status: {
             type: String,
+            default: 'Sent',
         },
     },
     {

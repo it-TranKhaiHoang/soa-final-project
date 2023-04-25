@@ -12,6 +12,14 @@
         </div>
     </div>
 {{/if}}
+{{#if error}}
+    <div class='alert alert-danger d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{error}}
+        </div>
+    </div>
+{{/if}}
 <!-- Tabs navs -->
 <ul class='nav nav-pills mb-3' id='ex-with-icons' role='tablist'>
     <li class='nav-item' role='presentation'>

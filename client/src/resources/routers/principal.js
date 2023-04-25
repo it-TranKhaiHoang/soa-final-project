@@ -58,8 +58,17 @@ router.get('/classroom', async (req, res, next) => {
     });
 });
 
-router.get('/announcement', (req, res, next) => {
-    res.render('principal/announcement', { user: 'principal' });
+router.get('/announcement', async (req, res, next) => {
+    const user = req.session.acc;
+    let listParent;
+    let listTeacher;
+    let history;
+    listTeacher = (await fetchData('SchoolStaff/teacher')) || null;
+    listParent = (await fetchData('parent/list')) || null;
+    history = (await fetchData(`ancm/list/sent/${user._id}`)) || null;
+    const success = req.flash('success') || '';
+    const error = req.flash('error') || '';
+    res.render('principal/announcement', { user: 'principal', error, success, listTeacher, listParent, history });
 });
 
 router.get('/schedule', (req, res, next) => {
@@ -90,4 +99,31 @@ router.post('/classroom', (req, res, next) => {
         });
 });
 
+router.post('/announcement', (req, res, next) => {
+    const user = req.session.acc;
+
+    const data = {
+        title: req.body.title,
+        type: req.body.type,
+        sendTo: req.body.sendTo,
+        body: req.body.body,
+        role: req.body.role,
+        sendBy: user._id,
+    };
+    const options = {
+        method: 'POST',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        data: data,
+        url: `${API_URL}ancm/create`,
+    };
+    axios(options)
+        .then(function (response) {
+            req.flash('success', 'Create new announcement successfully');
+            res.redirect('/p/announcement');
+        })
+        .catch(function (error) {
+            req.flash('error', 'Create new announcement fail ' + error);
+            res.redirect('/p/announcement');
+        });
+});
 module.exports = router;

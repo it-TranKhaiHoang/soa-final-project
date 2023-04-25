@@ -11,7 +11,7 @@ const auth = {
             .then((data) => {
                 if (data.token) {
                     req.session.token = data.token;
-
+                    req.session.acc = data.user;
                     if (data.user.position === 'principal') {
                         req.session.user = 'principal';
                         res.redirect('/p');

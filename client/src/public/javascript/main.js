@@ -170,6 +170,8 @@ $(document).ready(function () {
         },
         order: [[1, 'asc']],
     });
+    $('.dt-button').addClass('btn btn-primary mb-2');
+    $('.dt-button').removeClass('dt-button');
 });
 
 $('#listTeacher').DataTable({ columnDefs: [{ targets: 3, render: DataTable.render.datetime('Do MMM YYYY') }] });

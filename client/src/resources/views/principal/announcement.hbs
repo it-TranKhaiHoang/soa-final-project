@@ -1,50 +1,34 @@
-<!-- Section: Main chart -->
-<section class='mb-4'>
-  <table id='example' class='table table-hover' style='width:100%'>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Age</th>
-        <th>Start date</th>
-        <th>Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Hermione Butler</td>
-        <td>Regional Director</td>
-        <td>London</td>
-        <td>47</td>
-        <td>2011-03-21</td>
-        <td>$356,250</td>
-      </tr>
-      <tr>
-        <td>Lael Greer</td>
-        <td>Systems Administrator</td>
-        <td>London</td>
-        <td>21</td>
-        <td>2009-02-27</td>
-        <td>$103,500</td>
-      </tr>
-      <tr>
-        <td>Jonas Alexander</td>
-        <td>Developer</td>
-        <td>San Francisco</td>
-        <td>30</td>
-        <td>2010-07-14</td>
-        <td>$86,500</td>
-      </tr>
-      <tr>
-        <td>Shad Decker</td>
-        <td>Regional Director</td>
-        <td>Edinburgh</td>
-        <td>51</td>
-        <td>2008-11-13</td>
-        <td>$183,000</td>
-      </tr>
-    </tbody>
-  </table>
+<button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#modalCreateClass'><i
+        class='fa-solid fa-plus'
+    ></i>
+    Create new announcement</button>
+<hr class='hr' />
+{{#if success}}
+    <div class='alert alert-success d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{success}}
+        </div>
+    </div>
+{{/if}}
+
+<section>
+    <div class='card'>
+        <div class='card-body'>
+            <div class='d-flex justify-content-between'>
+                <div class='d-flex flex-row'>
+                    <div class='align-self-center'>
+                        <i class='far fa-comment-alt text-warning me-4'></i>
+                    </div>
+                    <div>
+                        <h4>Total Comments</h4>
+                        <p class='mb-0'>Monthly blog posts</p>
+                    </div>
+                </div>
+                <div class='align-self-center'>
+                    <h5 class='mb-0'>84,695</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-<!-- Section: Main chart -->

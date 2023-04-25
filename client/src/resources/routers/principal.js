@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const API_URL = process.env.API_URL;
+
 router.get('/', (req, res, next) => {
     res.render('principal/dashboard', { user: 'principal' });
 });
@@ -9,9 +10,11 @@ router.get('/', (req, res, next) => {
 async function getData(url) {
     return await axios.get(url);
 }
+
 function getListClasses() {
     return getData(`${API_URL}class/list`);
 }
+
 function getAvailTeacher() {
     return getData(`${API_URL}SchoolStaff/available`);
 }

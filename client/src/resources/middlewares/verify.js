@@ -1,12 +1,12 @@
 module.exports = function (req, res, next) {
     const path = req.originalUrl.split('/')[1];
 
-    req.user = 'student';
+    req.user = 'principal';
     if (!req.user) {
         return res.redirect('/auth/login');
     }
 
-    if (path === 's' && req.user === 'student') {
+    if (path === 's' && req.user === 'student') {Vé
         return next();
     }
 

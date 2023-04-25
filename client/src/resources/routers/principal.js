@@ -2,22 +2,10 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const API_URL = process.env.API_URL;
-
+const qs = require('qs');
 router.get('/', (req, res, next) => {
     res.render('principal/dashboard', { user: 'principal' });
 });
-
-async function getData(url) {
-    return await axios.get(url);
-}
-
-function getListClasses() {
-    return getData(`${API_URL}class/list`);
-}
-
-function getAvailTeacher() {
-    return getData(`${API_URL}SchoolStaff/available`);
-}
 
 const fetchData = async (url) => {
     try {
@@ -75,6 +63,30 @@ router.get('/announcement', (req, res, next) => {
 
 router.get('/schedule', (req, res, next) => {
     res.render('principal/schedule', { user: 'principal' });
+});
+
+router.post('/classroom', (req, res, next) => {
+    const data = {
+        name: req.body.name,
+        currentYear: req.body.currentYear,
+        teacher: req.body.teacher,
+        grade: req.body.grade,
+    };
+    const options = {
+        method: 'POST',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        data: data,
+        url: `${API_URL}class/create`,
+    };
+    axios(options)
+        .then(function (response) {
+            req.flash('success', 'Create new class successfully');
+            res.redirect('/principal/classroom');
+        })
+        .catch(function (error) {
+            req.flash('error', 'Create new class fail ' + error);
+            res.redirect('/principal/classroom');
+        });
 });
 
 module.exports = router;

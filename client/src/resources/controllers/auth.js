@@ -10,18 +10,17 @@ const auth = {
             .then((response) => response.json())
             .then((data) => {
                 if (data.token) {
-                    req.session.user = data.user;
                     req.session.token = data.token;
-                    if (data.user.studentID) {
-                        res.redirect('/#student');
+
+                    if (data.user.position === 'principal') {
+                        req.session.user = 'principal';
+                        res.redirect('/p');
+                    } else if (data.user.position === 'teacher') {
+                        req.session.user = 'teacher';
+                        res.redirect('/t');
                     } else {
-                        if (data.user.position === 'principal') {
-                            res.redirect('/principal');
-                        } else if (data.user.position === 'teacher') {
-                            res.redirect('/teacher');
-                        } else {
-                            res.redirect('/student');
-                        }
+                        req.session.user = 'student';
+                        res.redirect('/s');
                     }
                 } else {
                     res.redirect('/auth/login');

@@ -3,8 +3,9 @@ const router = express.Router();
 const axios = require('axios');
 const API_URL = process.env.API_URL;
 const qs = require('qs');
+
 router.get('/', (req, res, next) => {
-    res.render('principal/dashboard', { user: 'principal' });
+    res.redirect('/p/classroom');
 });
 
 const fetchData = async (url) => {
@@ -25,7 +26,7 @@ router.get('/classroom', async (req, res, next) => {
     listClass = (await fetchData('class/list')) || null;
     listTeacher = (await fetchData('SchoolStaff/available')) || null;
     listAvailableStudent = (await fetchData('student/list/available')) || null;
-    const list = listClass.map((item) => {
+    const list = listClass?.map((item) => {
         return { ...item, listStudent: listAvailableStudent };
     });
     const grade1st = list.filter((item) => {

@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    const page = ['classroom', 'teacher', 'schedule', 'announcement'];
+    for (const i of page) {
+        if (location.pathname.split(i).length == 2) {
+            $(`#${i}`).addClass('active');
+            break;
+        }
+    }
     $('#ListStudentTable').DataTable({
         columnDefs: [
             {

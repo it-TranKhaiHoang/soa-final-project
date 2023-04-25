@@ -8,14 +8,14 @@ const verify = require('../middlewares/verify');
 const API_URL = process.env.API_URL;
 const axios = require('axios');
 
+router.get('/', (req, res) => {
+    res.redirect('/auth/login');
+});
+
 router.use('/s', verify, studentRouter);
 router.use('/t', verify, teacherRouter);
 router.use('/p', verify, principalRouter);
 router.use('/auth', authRouter);
-
-router.get('/', (req, res) => {
-    if (!req.session.token) return res.redirect('/auth/login');
-});
 
 router.get('/addStudent/:classID/:studentID', async (req, res) => {
     await axios

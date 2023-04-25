@@ -55,6 +55,19 @@ const StudentController = {
                 res.status(500).json({ error: err });
             });
     },
+    getListFree: (req, res, next) => {
+        StudentService.getList({ currentClass: null }, {}, {}, '')
+            .then((students) => {
+                if (students.length > 0) {
+                    res.status(200).json(students);
+                } else {
+                    res.status(404).json({ message: 'Not found' });
+                }
+            })
+            .catch((err) => {
+                res.status(500).json({ error: err });
+            });
+    },
     getListByClass: (req, res, next) => {
         StudentService.getList(
             { currentClass: req.params.classID },

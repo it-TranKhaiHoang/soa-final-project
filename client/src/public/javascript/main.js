@@ -7,10 +7,26 @@ $(document).ready(function () {
             },
         ],
     });
+    $('#listStudentInClass').DataTable({
+        columnDefs: [
+            {
+                targets: 3,
+                render: DataTable.render.datetime('Do MMM YYYY'),
+            },
+        ],
+    });
+    $('#listStudentFree').DataTable({
+        columnDefs: [
+            {
+                targets: 3,
+                render: DataTable.render.datetime('Do MMM YYYY'),
+            },
+        ],
+    });
 });
 
 $(document).ready(function () {
-    var table = $('#listStudentCheckAttend').DataTable({
+    let table = $('#listStudentCheckAttend').DataTable({
         dom: 'Bfrtip',
         select: true,
         buttons: [
@@ -32,7 +48,6 @@ $(document).ready(function () {
                     let count = table.rows({ selected: true }).data().toArray();
                     let data = table.$('input, select').serialize();
                     console.log(count);
-                    // events.prepend( '<div>'+count+' row(s) selected</div>' );
                 },
             },
         ],

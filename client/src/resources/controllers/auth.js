@@ -16,11 +16,11 @@ const auth = {
                         res.redirect('/#student');
                     } else {
                         if (data.user.position === 'principal') {
-                            res.redirect('/classroom');
+                            res.redirect('/principal');
                         } else if (data.user.position === 'teacher') {
-                            res.redirect('/classroom');
+                            res.redirect('/teacher');
                         } else {
-                            res.redirect('/#parent');
+                            res.redirect('/student');
                         }
                     }
                 } else {

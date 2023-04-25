@@ -1,13 +1,26 @@
-function verify(role) {
-    return function (req, res, next) {
-        // req.user = 'principal';
-        // if (role === req.user) {
-        //     return next();
-        // } else if (req.user === 'teacher') {
-        // }
-        // res.render('error', { layout: 'auth' });
-        return next();
-    };
-}
+module.exports = function (req, res, next) {
+    const path = req.path.split('/')[1];
+    req.user = 'principal';
 
-module.exports = verify;
+    if (path === 's') {
+        if (req.user === 'student') {
+            return next();
+        }
+        return res.redirect('/auth/login');
+    }
+
+    if (path === 't' && req.user === 'teacher') {
+        if (req.user === 'student') {
+            return next();
+        }
+        return res.redirect('/auth/login');
+    }
+    if (path === 'p' && req.user === 'principal') {
+        if (req.user === 'student') {
+            return next();
+        }
+        return res.redirect('/auth/login');
+    }
+
+    return res.render('error', { layout: 'auth' });
+};

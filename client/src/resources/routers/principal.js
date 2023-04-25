@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+router.get('/', (req, res, next) => {
+    res.send('principal');
+});
+
 router.get('/classroom', (req, res, next) => {
-    if (!req.session.token) return res.redirect('/auth/login');
     res.render('principal/classroom');
 });
 

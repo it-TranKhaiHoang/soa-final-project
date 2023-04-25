@@ -2,8 +2,12 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 const API_URL = process.env.API_URL;
-router.get('/classroom', (req, res) => {
-    if (!req.session.token) return res.redirect('/auth/login');
+
+router.get('/', (req, res, next) => {
+    res.send('teacher');
+});
+
+router.get('/classroom', (req, res, next) => {
     const user = req.session.user;
     fetch(API_URL + `student/${user.classHomeroom}`, {
         method: 'GET',
@@ -14,7 +18,7 @@ router.get('/classroom', (req, res) => {
     });
 });
 
-router.get('/attendance', (req, res) => {
+router.get('/attendance', (req, res, next) => {
     const user = req.session.user;
     fetch(API_URL + `student/${user.classHomeroom}`, {
         method: 'GET',

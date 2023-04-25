@@ -172,6 +172,4 @@ $(document).ready(function () {
     });
 });
 
-// function fillDescription(id) {
-//     document.getElementById(id).innerText = document.getElementById('desc' + id).value;
-// }
+$('#listTeacher').DataTable({ columnDefs: [{ targets: 3, render: DataTable.render.datetime('Do MMM YYYY') }] });

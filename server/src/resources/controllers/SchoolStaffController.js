@@ -39,7 +39,7 @@ const SchoolStaffController = {
             });
     },
     getListTeacher: (req, res, next) => {
-        SchoolStaffService.getList({ position: 'teacher' }, {}, {}, '')
+        SchoolStaffService.getList({ position: 'teacher' }, {}, {}, 'classHomeroom')
             .then((teachers) => {
                 if (teachers.length > 0) {
                     res.status(200).json(teachers);

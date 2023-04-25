@@ -5,11 +5,7 @@ const ClassController = {
     getAllList: (req, res, next) => {
         return ClassService.getList({}, {}, {}, 'teacher')
             .then((classes) => {
-                if (classes.length > 0) {
-                    res.status(200).json(classes);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+                res.status(200).json(classes);
             })
             .catch((err) => {
                 res.status(500).json({ error: err });

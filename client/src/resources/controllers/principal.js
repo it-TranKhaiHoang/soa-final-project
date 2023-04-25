@@ -35,7 +35,6 @@ const principal = {
                 grade4th: list.filter((item) => item.grade == '4th'),
                 grade5th: list.filter((item) => item.grade == '5th'),
             };
-
             res.render('principal/classroom', {
                 title: 'Classroom',
                 grade,

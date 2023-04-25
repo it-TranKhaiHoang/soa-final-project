@@ -7,7 +7,18 @@ const ClassService = {
     getList: async (condition, options, sortBy, populate) => {
         let skip = options.skip || 0;
         let limit = options.limit || 0;
-        return Class.find(condition).sort(sortBy).skip(skip).limit(limit).populate(populate).lean();
+        return Class.find(condition)
+            .sort(sortBy)
+            .skip(skip)
+            .limit(limit)
+            .populate({
+                path: 'students',
+                populate: {
+                    path: 'parent',
+                },
+            })
+            .populate(populate)
+            .lean();
     },
     getOne: async (condition) => {
         return Class.findOne(condition);
@@ -19,7 +30,7 @@ const ClassService = {
         return Class.findById(id).populate(populate);
     },
     getByIDAndLean: async (id) => {
-        return Class.findById(id)
+        return Class.findById(id);
     },
     update: async (id, data) => {
         return Class.findByIdAndUpdate(id, { $set: data });

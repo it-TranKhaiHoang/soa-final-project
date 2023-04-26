@@ -1,50 +1,314 @@
 {{let 'user' 'teacher'}}
-<section class='mb-4'>
-  <table id='example' class='table table-hover' style='width:100%'>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Age</th>
-        <th>Start date</th>
-        <th>Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Hermione Butler</td>
-        <td>Regional Director</td>
-        <td>London</td>
-        <td>47</td>
-        <td>2011-03-21</td>
-        <td>$356,250</td>
-      </tr>
-      <tr>
-        <td>Lael Greer</td>
-        <td>Systems Administrator</td>
-        <td>London</td>
-        <td>21</td>
-        <td>2009-02-27</td>
-        <td>$103,500</td>
-      </tr>
-      <tr>
-        <td>Jonas Alexander</td>
-        <td>Developer</td>
-        <td>San Francisco</td>
-        <td>30</td>
-        <td>2010-07-14</td>
-        <td>$86,500</td>
-      </tr>
-      <tr>
-        <td>Shad Decker</td>
-        <td>Regional Director</td>
-        <td>Edinburgh</td>
-        <td>51</td>
-        <td>2008-11-13</td>
-        <td>$183,000</td>
-      </tr>
-    </tbody>
-  </table>
+<hr class='hr' />
+{{#if success}}
+    <div class='alert alert-success d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{success}}
+        </div>
+    </div>
+{{/if}}
+{{#if error}}
+    <div class='alert alert-danger d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{error}}
+        </div>
+    </div>
+{{/if}}
+<section class='text-center'>
+    <div class='row'>
+        <div class='col-lg-4 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative'>
+            <i class='fa-solid fa-comments fa-3x text-primary mb-4'></i>
+            <h5 class='text-primary fw-bold mb-3'>{{countAnnouncement}}+</h5>
+            <h6 class='fw-normal mb-0'>Announcement</h6>
+            <div class='vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0'></div>
+        </div>
+
+        <div class='col-lg-4 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative'>
+            <i class='fa-solid fa-business-time fa-3x text-primary mb-4'></i>
+            <h5 class='text-primary fw-bold mb-3'>{{countRemind}}+</h5>
+            <h6 class='fw-normal mb-0'>Remind</h6>
+            <div class='vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0'></div>
+        </div>
+        <div class='col-lg-4 col-md-6 mb-5 mb-md-0 position-relative'>
+            <i class='fa-solid fa-envelope-open-text fa-3x text-primary mb-4'></i>
+            <h5 class='text-primary fw-bold mb-3'>{{countInvitation}}+</h5>
+            <h6 class='fw-normal mb-0'>Invitation</h6>
+            <div class='vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0'></div>
+        </div>
+    </div>
 </section>
+<hr class='hr' />
+<!-- Tabs navs -->
+<ul class='nav nav-pills mb-3' id='ex-with-icons' role='tablist'>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link active'
+            id='ex-with-icons-tab-3'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-3'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-3'
+            aria-selected='true'
+        ><i class='fa-solid fa-inbox'></i> Inbox</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-1'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-1'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-1'
+            aria-selected='true'
+        ><i class='fa-regular fa-clipboard'></i> Create Announcement</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-2'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-2'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-2'
+            aria-selected='false'
+        ><i class='fa-solid fa-clock-rotate-left'></i> History</a>
+    </li>
+
+</ul>
+<hr class='hr' />
+
+<!-- Tabs navs -->
+
+<!-- Tabs content -->
+<div class='tab-content' id='ex-with-icons-content'>
+    <div
+        class='tab-pane fade show active'
+        id='ex-with-icons-tabs-3'
+        role='tabpanel'
+        aria-labelledby='ex-with-icons-tab-3'
+    >
+        {{! <div class='row'>
+
+            <div class='card mb-4'>
+                <div class='card-header'>Quote</div>
+                <div class='card-body'>
+                    <blockquote class='blockquote mb-0'>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <footer class='blockquote-footer'>Someone famous in
+                            <cite title='Source Title'>Source Title</cite></footer>
+                    </blockquote>
+                </div>
+                <div class='card-footer'>
+                    <small class='text-muted'>Last updated 3 mins ago</small>
+                </div>
+            </div>
+        </div> }}
+        <div class='row'>
+            <div class='col-md-8'>
+                <!-- Spied element -->
+                <div
+                    data-mdb-spy='scroll'
+                    data-mdb-target='#scrollspy-collapsible'
+                    data-mdb-offset='0'
+                    class='scrollspy-example'
+                >
+                    {{#each receives}}
+                        <section id='collapsible{{_id}}'>
+                            <h3>{{title}}</h3>
+                            <div class='card mb-4'>
+                                <div class='card-header'>{{capitalize type}}</div>
+                                <div class='card-body'>
+                                    <blockquote class='blockquote mb-0'>
+                                        <p>{{body}}</p>
+                                        <footer class='blockquote-footer'>{{capitalize sendBy.position}}
+                                            <cite title='Source Title'>{{sendBy.fullname}}</cite></footer>
+                                    </blockquote>
+                                </div>
+                                <div class='card-footer'>
+                                    <small class='text-muted'>{{formatDate createAt 'ddd, MMM D, YYYY'}}</small>
+                                </div>
+                            </div>
+                        </section>
+                    {{/each}}
+                </div>
+                <!-- Spied element -->
+            </div>
+
+            <div class='col-md-4'>
+                <!-- Scrollspy -->
+                <div id='scrollspy-collapsible' class='sticky-top'>
+                    <ul class='nav flex-column nav-pills menu-sidebar'>
+                        {{#each receives}}
+                            <li class='nav-item'>
+                                <a class='nav-link' href='#collapsible{{_id}}'>{{title}}</a>
+                            </li>
+                        {{/each}}
+                        {{! <li class='nav-item'>
+                            <a class='nav-link' href='#example-2-collapsible'>Section 2</a>
+                        </li>
+                        <li class='nav-item'>
+                            <a class='nav-link collapsible-scrollspy' href='#example-3-collapsible'>Section 3</a>
+                        </li>
+                        <li class='nav-item'>
+                            <a class='nav-link' href='#example-4-collapsible'>Section 4</a>
+                        </li> }}
+                    </ul>
+                </div>
+                <!-- Scrollspy -->
+            </div>
+        </div>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-1' role='tabpanel' aria-labelledby='ex-with-icons-tab-1'>
+        <div class='row'>
+            <div class='col-md-6 text-center'>
+                <h2 class='fw-bold mb-2 text-uppercase'>Create Announcement</h2>
+                <hr class='hr' />
+
+                <form method='post' action=''>
+                    <!-- Name input -->
+                    <div class='form-outline mb-4'>
+                        <input type='text' id='form4Example1' name='title' class='form-control' />
+                        <label class='form-label' for='form4Example1'>Title</label>
+                    </div>
+                    <input class='d-none' type='text' name='sendTo' id='sendTo' />
+                    <select class='form-select mb-4' name='type' aria-label='Default select example'>
+                        <option selected>Choose type</option>
+                        <option value='announcement'>Announcement</option>
+                        <option value='remind'>Remind</option>
+                        <option value='invitation'>Invitation</option>
+                    </select>
+                    <select class='form-select mb-4' name='role' aria-label='Default select example'>
+                        <option selected>Who can see this announcement</option>
+                        <option value='all'>All</option>
+                        <option value='teachers'>Teacher</option>
+                        <option value='parents'>Parents</option>
+                        <option value='students'>Student</option>
+                    </select>
+
+                    <!-- Message input -->
+                    <div class='form-outline mb-4'>
+                        <textarea class='form-control' id='form4Example3' name='body' rows='4'></textarea>
+                        <label class='form-label' for='form4Example3'>Message</label>
+                    </div>
+                    <!-- Submit button -->
+                    <button type='submit' class='btn btn-primary btn-block mb-4'>Send</button>
+                </form>
+            </div>
+            <div class='col-md-6'>
+                <h2 class='fw-bold mb-2 text-uppercase'>Send to</h2>
+                <hr class='hr' />
+
+                <ul class='nav nav-tabs mb-3' id='ex-with-icons' role='tablist'>
+                    <li class='nav-item' role='presentation'>
+                        <a
+                            class='nav-link active'
+                            id='ext-1'
+                            data-mdb-toggle='tab'
+                            href='#exts-1'
+                            role='tab'
+                            aria-controls='exts-1'
+                            aria-selected='true'
+                        ><i class='fa-solid fa-chalkboard-user'></i> Students</a>
+                    </li>
+                    <li class='nav-item' role='presentation'>
+                        <a
+                            class='nav-link'
+                            id='ext-2'
+                            data-mdb-toggle='tab'
+                            href='#exts-2'
+                            role='tab'
+                            aria-controls='exts-2'
+                            aria-selected='false'
+                        ><i class='fa-solid fa-user-group'></i> Parents</a>
+                    </li>
+                </ul>
+                <div class='tab-content' id='ex-with-icons-content'>
+                    <div class='tab-pane fade show active' id='exts-1' role='tabpanel' aria-labelledby='ext-1'>
+                        <table id='listTeacherSent' class='table table-hover overflow-x:auto' style='width:100%'>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Full name</th>
+                                    <th>Gender</th>
+                                    <th>Birth</th>
+                                    <th class='d-none'>ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each students}}
+                                    <tr>
+                                        <td></td>
+                                        <td>{{fullname}}</td>
+                                        <td>{{capitalize gender}}</td>
+                                        <td>{{formatDate birth 'ddd, MMM D, YYYY'}}</td>
+                                        <td class='d-none'>{{_id}}</td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='tab-pane fade' id='exts-2' role='tabpanel' aria-labelledby='ext-2'>
+                        <table id='listParentSent' class='table table-hover overflow-x:auto' style='width:100%'>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Full name</th>
+                                    <th>Student</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th class='d-none'>Full name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each students}}
+                                    <tr>
+                                        <td></td>
+                                        <td>{{parent.fullname}}</td>
+                                        <td>{{fullname}}</td>
+                                        <td>{{parent.email}}</td>
+                                        <td>{{parent.phone}}</td>
+                                        <td class='d-none'>{{parent._id}}</td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-2' role='tabpanel' aria-labelledby='ex-with-icons-tab-2'>
+        <section class='mb-4'>
+            <table id='listPrincipalAnnouncement' class='table table-hover' style='width:100%'>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Message</th>
+                        <th>Create At</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each history}}
+                        <tr>
+                            <td>{{title}}</td>
+                            <td>{{capitalize type}}</td>
+                            <td>{{body}}</td>
+                            <td>{{formatDate createdAt 'ddd, MMM D, YYYY'}}</td>
+                            <td>{{status}}</td>
+                        </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+<!-- Tabs content -->
+<!-- Section: Main chart -->
+
 <!-- Section: Main chart -->

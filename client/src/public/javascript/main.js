@@ -24,6 +24,7 @@ $(document).ready(function () {
                 render: DataTable.render.datetime('Do MMM YYYY'),
             },
         ],
+        scrollX: true,
     });
     $('#listStudentInClass').DataTable({
         columnDefs: [
@@ -32,6 +33,7 @@ $(document).ready(function () {
                 render: DataTable.render.datetime('Do MMM YYYY'),
             },
         ],
+        scrollX: true,
     });
     $('#listStudentFree').DataTable({
         columnDefs: [
@@ -40,6 +42,7 @@ $(document).ready(function () {
                 render: DataTable.render.datetime('Do MMM YYYY'),
             },
         ],
+        scrollX: true,
     });
     $('#listPrincipalAnnouncement').DataTable({
         columnDefs: [
@@ -48,6 +51,7 @@ $(document).ready(function () {
                 render: DataTable.render.datetime('Do MMM YYYY'),
             },
         ],
+        scrollX: true,
     });
     let table = $('#listTeacherSent').DataTable({
         dom: 'Bfrtip',
@@ -92,6 +96,7 @@ $(document).ready(function () {
         },
         order: [[1, 'asc']],
         lengthMenu: [5, 10, 20, 50, 100, 200, 500],
+        scrollX: true,
     });
 });
 
@@ -139,6 +144,7 @@ $(document).ready(function () {
         },
         order: [[1, 'asc']],
         lengthMenu: [5, 10, 20, 50, 100, 200, 500],
+        scrollX: true,
     });
 });
 
@@ -194,6 +200,7 @@ $(document).ready(function () {
             selector: 'td:first-child',
         },
         order: [[1, 'asc']],
+        scrollX: true,
     });
     $('.dt-button').addClass('btn btn-primary mb-2');
     $('.dt-button').removeClass('dt-button');

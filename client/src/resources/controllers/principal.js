@@ -58,7 +58,6 @@ const principal = {
             countInvitation,
             countRemind,
         });
-        res.render('principal/announcement', { title: 'Announcement' });
     },
 
     getSchedule: (req, res, next) => {
@@ -117,6 +116,34 @@ const principal = {
             .catch(function (error) {
                 req.flash('error', 'Create new class fail ' + error);
                 res.redirect('/principal/classroom');
+            });
+    },
+    createAnnouncement: (req, res, next) => {
+        const user = req.session.acc;
+
+        const data = {
+            title: req.body.title,
+            type: req.body.type,
+            sendTo: req.body.sendTo,
+            body: req.body.body,
+            role: req.body.role,
+            sendBy: user._id,
+        };
+
+        const options = {
+            method: 'POST',
+            headers: { 'content-type': 'application/x-www-form-urlencoded' },
+            data: data,
+            url: `http://localhost:8080/api/ancm/create`,
+        };
+        axios(options)
+            .then(function (response) {
+                req.flash('success', 'Create new announcement successfully');
+                res.redirect('/p/announcement');
+            })
+            .catch(function (error) {
+                req.flash('error', 'Create new announcement fail ' + error);
+                res.redirect('/p/announcement');
             });
     },
 };

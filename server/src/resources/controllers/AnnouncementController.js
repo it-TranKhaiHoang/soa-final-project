@@ -5,6 +5,7 @@ const ParentService = require('../services/ParentService');
 const Parent = require('../models/Parent');
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
+const SchoolStaff = require('../models/SchoolStaff');
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -54,8 +55,15 @@ const AnnouncementController = {
                             emails.forEach((item) => {
                                 sendMail(item.email, { title, type, body });
                             });
-                        } else {
-                            res.status(404).json({ message: 'Unknown Recipient' });
+                        }
+                    });
+                SchoolStaff.find({ _id: { $in: list } })
+                    .select('email')
+                    .then((emails) => {
+                        if (emails.length > 0) {
+                            emails.forEach((item) => {
+                                sendMail(item.email, { title, type, body });
+                            });
                         }
                     });
                 res.status(201).json({ message: 'New announcement has been created successfully', created: true });
@@ -65,26 +73,18 @@ const AnnouncementController = {
             });
     },
     getListSent: (req, res, next) => {
-        AnnouncementService.getList({ sendBy: req.params.id }, {}, {}, '')
+        AnnouncementService.getList({ sendBy: req.params.id }, {}, { createdAt: -1 }, '')
             .then((announcements) => {
-                if (announcements.length > 0) {
-                    res.status(200).json(announcements);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+                res.status(200).json(announcements);
             })
             .catch((err) => {
                 res.status(500).json({ error: err });
             });
     },
     getListReceived: (req, res, next) => {
-        AnnouncementService.getList({ sendTo: { $in: ['6445427c934b44c3693c49da'] } }, {}, {}, '')
+        AnnouncementService.getList({ sendTo: { $in: [`${req.params.id}`] } }, {}, { createdAt: -1 }, 'sendBy')
             .then((announcements) => {
-                if (announcements.length > 0) {
-                    res.status(200).json(announcements);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+                res.status(200).json(announcements);
             })
             .catch((err) => {
                 res.status(500).json({ error: err });
@@ -93,7 +93,6 @@ const AnnouncementController = {
     getDetailByID: (req, res, next) => {
         AnnouncementService.getOneByID(req.params.id)
             .then((announcement) => {
-                if (!announcement) return res.status(404).json({ message: 'Announcement Not Found' });
                 res.status(200).json(announcement);
             })
             .catch((err) => res.status(500).json({ error: err }));

@@ -55,7 +55,7 @@
             role='tab'
             aria-controls='ex-with-icons-tabs-1'
             aria-selected='true'
-        ><i class='fas fa-chart-pie fa-fw me-2'></i>Sales</a>
+        ><i class='fa-regular fa-clipboard'></i> Create Announcement</a>
     </li>
     <li class='nav-item' role='presentation'>
         <a
@@ -66,7 +66,7 @@
             role='tab'
             aria-controls='ex-with-icons-tabs-2'
             aria-selected='false'
-        ><i class='fas fa-chart-line fa-fw me-2'></i>History</a>
+        ><i class='fa-solid fa-clock-rotate-left'></i> History</a>
     </li>
 
 </ul>
@@ -217,7 +217,7 @@
                     {{#each history}}
                         <tr>
                             <td>{{title}}</td>
-                            <td>{{type}}</td>
+                            <td>{{capitalize type}}</td>
                             <td>{{body}}</td>
                             <td>{{formatDate createdAt 'ddd, MMM D, YYYY'}}</td>
                             <td>{{status}}</td>

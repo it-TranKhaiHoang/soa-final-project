@@ -13,4 +13,5 @@ router.get('/schedule', teacherController.getSchedule);
 router.get('/attendance', teacherController.getAttendance);
 
 router.get('/announcement', teacherController.getAnnouncement);
+router.post('/announcement', teacherController.createAnnouncement);
 module.exports = router;

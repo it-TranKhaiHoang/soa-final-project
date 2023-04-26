@@ -45,11 +45,7 @@ const StudentController = {
     getListAll: (req, res, next) => {
         StudentService.getList({}, {}, {}, { path: 'currentClass', populate: { path: 'teacher' } })
             .then((students) => {
-                if (students.length > 0) {
-                    res.status(200).json(students);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+                res.status(200).json(students);
             })
             .catch((err) => {
                 res.status(500).json({ error: err });
@@ -72,11 +68,7 @@ const StudentController = {
             { path: 'currentClass', populate: { path: 'teacher' } },
         )
             .then((students) => {
-                if (students.length > 0) {
-                    res.status(200).json(students);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+                res.status(200).json(students);
             })
             .catch((err) => {
                 res.status(500).json({ error: err });
@@ -90,11 +82,7 @@ const StudentController = {
             { path: 'currentClass', populate: { path: 'teacher' } },
         )
             .then((students) => {
-                if (students.length > 0) {
-                    res.status(200).json(students);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+                res.status(200).json(students);
             })
             .catch((err) => {
                 res.status(500).json({ error: err });

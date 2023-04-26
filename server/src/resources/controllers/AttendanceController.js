@@ -1,9 +1,18 @@
 const AttendanceService = require('../services/AttendanceService');
+const StudentService = require('../services/StudentService');
 
 const AttendanceController = {
-    postCreate: (req, res, next) => {
-        const { student, currentDate, isPresent, description } = req.body;
-        AttendanceService.create({ student, currentDate, isPresent, description })
+    postCreate: async (req, res, next) => {
+        const { students, description } = req.body;
+        const classId = req.headers.classid;
+        const list = await StudentService.getList({ currentClass: classId }, {}, {}, '');
+        const result = list.map((student) => {
+            if (students.includes(student._id)) {
+                return { student: student._id, isPresent: true };
+            }
+            return { student: student._id, isPresent: false };
+        });
+        AttendanceService.create({ class: classId, students: result, description })
             .then(() => {
                 res.status(201).json({ message: 'New attendance has been created successfully' });
             })
@@ -38,18 +47,13 @@ const AttendanceController = {
             });
     },
     getListByClassIDandDate: (req, res, next) => {
-        AttendanceService.getList({ currentDate: new Date(req.params.date) }, {}, {}, 'student')
-            .then((attendances) => {
-                if (attendances.length > 0) {
-                    const filteredAttendances = attendances.filter((att) => {
-                        return att.student.currentClass == req.params.classID;
-                    });
-                    res.status(200).json(filteredAttendances);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+        const { date, classID } = req.params;
+        AttendanceService.getOne({ date: { $gt: new Date(date) }, class: classID }, 'students')
+            .then((attendance) => {
+                res.status(200).json(attendance);
             })
             .catch((err) => {
+                console.log(err);
                 res.status(500).json({ error: err });
             });
     },

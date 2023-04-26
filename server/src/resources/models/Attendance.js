@@ -3,18 +3,18 @@ const Schema = mongoose.Schema;
 
 const Attendance = new Schema(
     {
-        student: { type: mongoose.Types.ObjectId, ref: 'Student' },
-        currentDate: {
+        class: { type: mongoose.Types.ObjectId, ref: 'Class' },
+        students: [
+            {
+                student: { type: mongoose.Types.ObjectId, ref: 'Student' },
+                isPresent: { type: Boolean, default: true },
+            },
+        ],
+        date: {
             type: Date,
             default: Date.now,
         },
-        isPresent: {
-            type: Boolean,
-            default: false,
-        },
-        description: {
-            type: String,
-        },
+        description: String,
     },
     {
         timestamps: true,

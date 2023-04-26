@@ -31,7 +31,8 @@ const teacher = {
     getAttendance: async (req, res) => {
         try {
             const students = (await axios.get(`${API_URL}student/list`)).data;
-            res.render('teacher/attendance', { title: 'Attendance', students });
+            const classID = req.session.acc.classHomeroom;
+            res.render('teacher/attendance', { title: 'Attendance', students, classID });
         } catch (error) {
             console.error(error);
             res.render('error', { title: 'Error', layout: 'auth', message: 'Something went wrong' });

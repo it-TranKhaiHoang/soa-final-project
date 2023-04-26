@@ -1,12 +1,13 @@
 {{let 'user' 'teacher'}}
 <section class='mb-4'>
+    <div id='class-id' class='d-none'>{{classID}}</div>
+    <input id='attend-date' type='date' class='form-control mb-3 w-50' />
     <table id='listStudentCheckAttend' class='table table-hover' style='width:100%'>
         <thead>
             <tr>
                 <th>Attend</th>
                 <th>Student ID</th>
                 <th>Full name</th>
-                <th>Description</th>
                 {{! <th></th> }}
                 {{! <th>Gender</th>
                 <th>Address</th> }}
@@ -18,7 +19,6 @@
                     <td></td>
                     <td class='fw-bold mb-1'>{{studentID}}</td>
                     <td class='fw-bold mb-1'>{{fullname}}</td>
-                    <td><input /></td>
                     {{!-- <td>
                         <button
                             type='button'
@@ -37,6 +37,7 @@
             {{/each}}
         </tbody>
     </table>
+    <textarea class='form-control mt-3' id='note-inp' cols='30' rows='2' placeholder='Ghi chú'></textarea>
 </section>
 <!-- Section: Main chart -->
 

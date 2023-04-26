@@ -9,8 +9,8 @@ const AttendanceService = {
         let limit = options.limit || 0;
         return Attendance.find(condition).sort(sortBy).skip(skip).limit(limit).populate(populate).lean();
     },
-    getOne: async (condition) => {
-        return Attendance.findOne(condition);
+    getOne: async (condition, populate) => {
+        return Attendance.findOne(condition).populate(populate).lean();
     },
     getOneByID: async (id) => {
         return Attendance.findById(id);

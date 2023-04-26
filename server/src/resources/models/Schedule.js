@@ -8,18 +8,21 @@ const Schedule = new Schema(
         dayOfWeek: {
             type: String,
             required: true,
-            enum: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
-        },
-        session: {
-            type: String,
-            required: true,
-            enum: ['morning', 'afternoon'],
+            enum: ['1', '2', '3', '4', '5'],
         },
         startAt: {
             type: Date,
             required: true,
         },
         endAt: {
+            type: Date,
+            required: true,
+        },
+        startTime: {
+            type: Date,
+            required: true,
+        },
+        endTime: {
             type: Date,
             required: true,
         },

@@ -1,4 +1,15 @@
+function getAttendanceByDate(date) {
+    return fetch(`http://localhost:8080/api/attend/list/${$('#class-id').html()}/${date}`)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
+}
+
 $(document).ready(function () {
+    $('#attend-date').change(function () {
+        getAttendanceByDate($(this).val());
+    });
+
     const page = ['classroom', 'teacher', 'schedule', 'announcement', 'scoreboard', 'attendance'];
     for (const i of page) {
         if (location.pathname.split(i).length == 2) {
@@ -157,9 +168,23 @@ $(document).ready(function () {
             {
                 text: 'Save data',
                 action: function () {
-                    const list = table.rows({ selected: false }).data().toArray();
+                    const list = table.rows({ selected: true }).data().toArray();
                     const idList = list.map((item) => item[1]);
-                    console.log(list);
+
+                    fetch('http://localhost:8080/api/attend/create', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            classid: $('#class-id').html(),
+                        },
+                        body: JSON.stringify({
+                            students: idList,
+                            description: $('#note-inp').val(),
+                        }),
+                    })
+                        .then((response) => response.json())
+                        .then((data) => console.log(data))
+                        .catch((error) => console.error(error));
                 },
             },
         ],

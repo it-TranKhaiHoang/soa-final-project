@@ -10,12 +10,12 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const indexRouter = require('./resources/routers/index');
 const moment = require('moment');
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser('tkh'));
 app.use(session());
 app.use(flash());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine(

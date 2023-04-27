@@ -46,12 +46,7 @@
 
             <!-- Brand -->
             <a class='navbar-brand' href='#'>
-                <img
-                    src='https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png'
-                    height='25'
-                    alt=''
-                    loading='lazy'
-                />
+                <img src='/images/logo.png' height='25' alt='' loading='lazy' />
             </a>
             <!-- Search form -->
             <form class='d-none d-md-flex input-group w-auto my-auto'>
@@ -68,7 +63,7 @@
             <!-- Right links -->
             <ul class='navbar-nav ms-auto d-flex flex-row'>
                 <!-- Notification dropdown -->
-                <li class='nav-item dropdown'>
+                {{! <li class='nav-item dropdown'>
                     <a
                         class='nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow'
                         href='#'
@@ -87,7 +82,7 @@
                             <a class='dropdown-item' href='#'>Something else here</a>
                         </li>
                     </ul>
-                </li>
+                </li> }}
 
                 <!-- Icon dropdown -->
                 <li class='nav-item dropdown'>
@@ -144,9 +139,9 @@
                         data-mdb-toggle='dropdown'
                         aria-expanded='false'
                     >
-                        <span class='me-2'>Principal</span>
+                        <span class='me-2'>Teacher</span>
                         <img
-                            src='https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg'
+                            src='https://gravatar.com/avatar/b4e6dbd9a50b89becf840eec42179e15?s=400&d=mp&r=x'
                             class='rounded-circle'
                             height='22'
                             alt=''
@@ -155,7 +150,6 @@
                     </a>
                     <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='navbarDropdownMenuLink'>
                         <li><a class='dropdown-item' href='#'>My profile</a></li>
-                        <li><a class='dropdown-item' href='#'>Settings</a></li>
                         <li><a class='dropdown-item' href='/auth/logout'>Logout</a></li>
                     </ul>
                 </li>

@@ -59,8 +59,8 @@ body {
     -webkit-user-select: none !important;
     touch-action: manipulation !important;
 }
-.scrollspy-example-collapsible {
+.scrollspy-example {
     position: relative;
-    height: 200px;
+    height: 400px;
     overflow: auto;
 }

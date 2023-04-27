@@ -51,7 +51,11 @@ const student = {
     getAttendance: async (req, res, next) => {
         try {
             const user = req.session.acc;
-            const attendances = (await axios.get(`${API_URL}attend/list/${user._id}`)).data;
+            let id = user._id;
+            if (!user.studentID) {
+                id = user.student._id;
+            }
+            const attendances = (await axios.get(`${API_URL}attend/list/${id}`)).data;
             res.render('student/attendance', { title: 'Attendance', attendances });
         } catch (error) {
             console.error(error);

@@ -1,0 +1,29 @@
+<section>
+    <table class='table align-middle mb-0'>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each attendances}}
+                <tr>
+                    <td>
+                        <p class='text-primary'><strong>{{formatDate date 'DD-MM-yyyy'}}</strong></p>
+                    </td>
+                    <td>
+                        <span class='text-muted'>
+                            {{#if isPresent}}
+                                Present
+                            {{else}}
+                                Absent
+                            {{/if}}
+                        </span>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</section>

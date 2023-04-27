@@ -33,19 +33,31 @@ const AttendanceController = {
                 res.status(500).json({ error: err });
             });
     },
+
     getListByStudentID: (req, res, next) => {
-        AttendanceService.getList({ student: req.params.studentID }, {}, {}, 'student')
+        const { studentID: student } = req.params;
+
+        AttendanceService.getList({ students: { $elemMatch: { student } } }, {}, {}, 'students.student')
             .then((attendances) => {
-                if (attendances.length > 0) {
-                    res.status(200).json(attendances);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+                const result = [];
+                attendances.map((attend) => {
+                    attend.students?.map((item) => {
+                        if (item.student._id == student) {
+                            result.push({
+                                ...item,
+                                date: attend.date,
+                            });
+                        }
+                    });
+                });
+                res.status(200).json(result);
             })
             .catch((err) => {
+                console.log(err);
                 res.status(500).json({ error: err });
             });
     },
+
     getListByClassIDandDate: (req, res, next) => {
         let { date, classID } = req.params;
 

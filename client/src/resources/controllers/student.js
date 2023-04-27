@@ -33,6 +33,16 @@ const student = {
             res.render('error', { title: 'Error', layout: 'auth', message: 'Something went wrong' });
         }
     },
+    getAttendance: async (req, res, next) => {
+        try {
+            const user = req.session.acc;
+            const attendances = (await axios.get(`${API_URL}attend/list/${user._id}`)).data;
+            res.render('student/attendance', { title: 'Attendance', attendances });
+        } catch (error) {
+            console.error(error);
+            res.render('error', { title: 'Error', layout: 'auth', message: 'Something went wrong' });
+        }
+    },
     getSchedule: (req, res, next) => {
         res.render('student/schedule', { title: 'Schedule' });
     },

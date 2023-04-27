@@ -7,12 +7,14 @@ const student = {
             const user = req.session.acc;
             let classID = user.currentClass;
             let studentName = user.fullname;
+            let studentID = user.studentID;
             if (!user.studentID) {
                 classID = user.student.currentClass;
                 studentName = user.student.fullname;
+                studentID = user.student.studentID;
             }
             const receives = (await axios.get(`${API_URL}ancm/list/receive/${user._id}`)).data;
-            res.render('student/dashboard', { title: 'Dashboard', classID, studentName, receives});
+            res.render('student/dashboard', { title: 'Dashboard', classID, studentName, receives, studentID });
         } catch (error) {
             console.error(error);
             res.render('error', { title: 'Error', layout: 'auth', message: 'Something went wrong' });
@@ -62,7 +64,7 @@ const student = {
         if (!user.studentID) {
             classID = user.student.currentClass;
         }
-        res.render('student/schedule', { title: 'Schedule', classID });
+        res.render('student/schedule', { title: 'Schedule', classID: classID._id });
     },
     getScores: (req, res, next) => {
         res.render('student/scoreboard', { title: 'Scoreboard' });

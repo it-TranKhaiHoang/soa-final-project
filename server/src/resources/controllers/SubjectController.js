@@ -14,11 +14,16 @@ const SubjectController = {
     getListAll: (req, res, next) => {
         SubjectService.getList({}, {}, {}, 'teacher')
             .then((subjects) => {
-                if (subjects.length > 0) {
-                    res.status(200).json(subjects);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+                res.status(200).json(subjects);
+            })
+            .catch((err) => {
+                res.status(500).json({ error: err });
+            });
+    },
+    getListByGrade: (req, res, next) => {
+        SubjectService.getList({ grade: req.params.grade }, {}, {}, 'teacher')
+            .then((subjects) => {
+                res.status(200).json(subjects);
             })
             .catch((err) => {
                 res.status(500).json({ error: err });

@@ -60,14 +60,13 @@ const principal = {
         });
     },
 
-    getSchedule: async (req, res, next) => {},
-
     getScheduleDetail: async (req, res, next) => {
         try {
             const success = req.flash('success');
             const error = req.flash('error');
             const classID = req.path.split('/')[2];
-
+            const currentClass = (await axios.get(`${API_URL}class/${classID}`)).data;
+            const subjects = (await axios.get(`${API_URL}subject/list/${currentClass.grade}`)).data;
             // const listClass = (await axios.get(`${API_URL}class/list`)).data;
             // const listTeacher = (await axios.get(`${API_URL}SchoolStaff/available`)).data;
 
@@ -82,6 +81,8 @@ const principal = {
                 title: 'Classroom',
                 success,
                 error,
+                subjects,
+                classID,
             });
         } catch (error) {
             console.error(error);
@@ -136,11 +137,11 @@ const principal = {
         axios(options)
             .then(function (response) {
                 req.flash('success', 'Create new class successfully');
-                res.redirect('/principal/classroom');
+                res.redirect('/p/classroom');
             })
             .catch(function (error) {
                 req.flash('error', 'Create new class fail ' + error);
-                res.redirect('/principal/classroom');
+                res.redirect('/p/classroom');
             });
     },
     createAnnouncement: (req, res, next) => {
@@ -170,6 +171,38 @@ const principal = {
                 req.flash('error', 'Create new announcement fail ' + error);
                 res.redirect('/p/announcement');
             });
+    },
+
+    createSchedule: async (req, res, next) => {
+        try {
+            const data = {
+                subject: req.body.subject,
+                class: req.body.classID,
+                dayOfWeek: req.body.dayOfWeek,
+                startAt: req.body.startAt,
+                endAt: req.body.endAt,
+                startTime: req.body.startTime,
+                endTime: req.body.endTime,
+            };
+            const options = {
+                method: 'POST',
+                headers: { 'content-type': 'application/x-www-form-urlencoded' },
+                data: data,
+                url: `${API_URL}schedule/create`,
+            };
+            axios(options)
+                .then(function (response) {
+                    req.flash('success', 'Create new schedule successfully');
+                    res.redirect(`/p/schedule/${req.body.classID}`);
+                })
+                .catch(function (error) {
+                    req.flash('error', 'Create new schedule fail ' + error);
+                    res.redirect(`/p/schedule/${req.body.classID}`);
+                });
+        } catch (error) {
+            console.error(error);
+            res.render('error', { layout: 'auth', message: 'Something went wrong' });
+        }
     },
 };
 

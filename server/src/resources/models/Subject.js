@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const Subject = new Schema({
     name: { type: String, required: true },
     description: { type: String, required: true },
+    grade: {type: String},
     teacher: { type: mongoose.Types.ObjectId, ref: 'SchoolStaff' },
 });
 

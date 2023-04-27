@@ -26,9 +26,88 @@
     </ol>
 </nav>
 <hr class='hr' />
-<button type='button' class='btn btn-success mb-2'>Success</button>
+<button type='button' data-mdb-toggle='modal' data-mdb-target='#modalAddSchedule' class='btn btn-success mb-2'><i
+        class='fa-regular fa-calendar-plus'
+    ></i>
+    Add a class schedule</button>
 
 <style>
     #calendar { max-width: 1100px; margin: 0 auto; height: 600px;}
 </style>
 <div id='calendar'></div>
+
+<!-- Modal -->
+<div class='modal fade' id='modalAddSchedule' tabindex='-1' aria-labelledby='modalAddScheduleLabel' aria-hidden='true'>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='modalAddScheduleLabel'>Add schedule</h5>
+                <button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
+            </div>
+            <div class='modal-body'>
+                <form action='/p/schedule' method='post'>
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <select class='form-select' name='subject' aria-label='Default select example'>
+                                <option selected>Choose subject</option>
+                                {{#each subjects}}
+                                    <option value='{{_id}}'>{{name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class='col'>
+                            <select class='form-select' name='dayOfWeek' aria-label='Default select example'>
+                                <option selected>Choose date of week</option>
+                                <option value='1'>Monday</option>
+                                <option value='2'>Tuesday</option>
+                                <option value='3'>Wednesday</option>
+                                <option value='4'>Thursday</option>
+                                <option value='5'>Friday</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="text" name="classID" class="d-none" value="{{classID}}">
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='Date' id='scheduleStart' name='startAt' class='form-control' />
+                                <label class='form-label' for='scheduleStart'>Date start</label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='Date' id='ScheduleEnd' name='endAt' class='form-control' />
+                                <label class='form-label' for='ScheduleEnd'>Date end</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='time' id='scheduleStart' name='startTime' class='form-control' />
+                                <label class='form-label' for='scheduleStart'>Starting time</label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='time' id='ScheduleEnd' name='endTime' class='form-control' />
+                                <label class='form-label' for='ScheduleEnd'>Ending time</label>
+                            </div>
+                        </div>
+                    </div>
+                    {{! <div class='form-outline'>
+                        <input type='text' id='form6Example2' name='currentYear' class='form-control' />
+                        <label class='form-label' for='form6Example2'>School year:</label>
+                    </div> }}
+                    <!-- Text input -->
+
+                    <!-- Submit button -->
+                    <button type='submit' class='btn btn-primary btn-block mb-4'>Create</button>
+                </form>
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>

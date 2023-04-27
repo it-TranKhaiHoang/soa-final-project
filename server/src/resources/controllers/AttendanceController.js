@@ -36,11 +36,7 @@ const AttendanceController = {
     getListByStudentID: (req, res, next) => {
         AttendanceService.getList({ student: req.params.studentID }, {}, {}, 'student')
             .then((attendances) => {
-                if (attendances.length > 0) {
-                    res.status(200).json(attendances);
-                } else {
-                    res.status(404).json({ message: 'Not found' });
-                }
+                res.status(200).json(attendances);
             })
             .catch((err) => {
                 res.status(500).json({ error: err });

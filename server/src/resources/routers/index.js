@@ -19,7 +19,7 @@ router.use('/schedule', ScheduleRouter);
 router.use('/SchoolStaff', SchoolStaffRouter);
 router.use('/scores', ScoresRouter);
 router.use('/student', StudentRouter);
-router.use('/subjectRouter', SubjectRouter);
+router.use('/subject', SubjectRouter);
 router.use('/user', UserRouter);
 
 module.exports = router;

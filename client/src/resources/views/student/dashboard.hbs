@@ -1,69 +1,95 @@
 <!--Section: Minimal statistics cards-->
 {{let 'user' 'student'}}
+
 <section>
     <div class='row'>
-        <div class='col-xl-3 col-sm-6 col-12 mb-4'>
-            <div class='card'>
-                <div class='card-body'>
-                    <div class='d-flex justify-content-between px-md-1'>
-                        <div class='align-self-center'>
-                            <i class='fas fa-pencil-alt text-info fa-3x'></i>
-                        </div>
-                        <div class='text-end'>
-                            <h3>278</h3>
-                            <p class='mb-0'>New Posts</p>
-                        </div>
-                    </div>
+        <div class='col-md-6'>
+            <div class='card testimonial-card mt-2 mb-3'>
+                <div class='card-up aqua-gradient'></div>
+                <div class='avatar mx-auto white'>
+                    <img
+                        src='https://gravatar.com/avatar/b4e6dbd9a50b89becf840eec42179e15?s=200&d=mp&r=x'
+                        class='rounded-circle img-fluid'
+                        alt='woman avatar'
+                    />
+                </div>
+                <div class='card-body text-center'>
+                    <h4 class='card-title font-weight-bold'>{{studentName}}</h4>
+                    <hr />
+                    <p>Class: {{classID.name}}</p>
+                    <p>Homeroom teacher: {{classID.teacher.fullname}}</p>
+                    <p>Email: <a href='mailto:{{classID.teacher.email}}'>{{classID.teacher.email}}</a></p>
+                    <p>Phone: <a href='tel:{{classID.teacher.phone}}'>{{classID.teacher.phone}}</a></p>
                 </div>
             </div>
         </div>
-        <div class='col-xl-3 col-sm-6 col-12 mb-4'>
-            <div class='card'>
-                <div class='card-body'>
-                    <div class='d-flex justify-content-between px-md-1'>
-                        <div class='align-self-center'>
-                            <i class='far fa-comment-alt text-warning fa-3x'></i>
-                        </div>
-                        <div class='text-end'>
-                            <h3>156</h3>
-                            <p class='mb-0'>New Comments</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class='col-xl-3 col-sm-6 col-12 mb-4'>
-            <div class='card'>
-                <div class='card-body'>
-                    <div class='d-flex justify-content-between px-md-1'>
-                        <div class='align-self-center'>
-                            <i class='fas fa-chart-line text-success fa-3x'></i>
-                        </div>
-                        <div class='text-end'>
-                            <h3>64.89 %</h3>
-                            <p class='mb-0'>Bounce Rate</p>
+        <div class='col-md-6'>
+            <div class='row'>
+                <div class='col-xl-3 col-sm-6 col-12 mb-4'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <div class='d-flex justify-content-between px-md-1'>
+                                <div class='align-self-center'>
+                                    <i class='fas fa-pencil-alt text-info fa-3x'></i>
+                                </div>
+                                <div class='text-end'>
+                                    <h3>{{absent}}</h3>
+                                    <p class='mb-0'>Absent</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class='col-xl-3 col-sm-6 col-12 mb-4'>
-            <div class='card'>
-                <div class='card-body'>
-                    <div class='d-flex justify-content-between px-md-1'>
-                        <div class='align-self-center'>
-                            <i class='fas fa-map-marker-alt text-danger fa-3x'></i>
+                <div class='col-xl-3 col-sm-6 col-12 mb-4'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <div class='d-flex justify-content-between px-md-1'>
+                                <div class='align-self-center'>
+                                    <i class='far fa-comment-alt text-warning fa-3x'></i>
+                                </div>
+                                <div class='text-end'>
+                                    <h3>{{receives.length}}</h3>
+                                    <p class='mb-0'>Announcement</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class='text-end'>
-                            <h3>423</h3>
-                            <p class='mb-0'>Total Visits</p>
+                    </div>
+                </div>
+                <div class='col-xl-3 col-sm-6 col-12 mb-4'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <div class='d-flex justify-content-between px-md-1'>
+                                <div class='align-self-center'>
+                                    <i class='fas fa-chart-line text-success fa-3x'></i>
+                                </div>
+                                <div class='text-end'>
+                                    <h3>64.89 %</h3>
+                                    <p class='mb-0'>Bounce Rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-xl-3 col-sm-6 col-12 mb-4'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <div class='d-flex justify-content-between px-md-1'>
+                                <div class='align-self-center'>
+                                    <i class='fas fa-map-marker-alt text-danger fa-3x'></i>
+                                </div>
+                                <div class='text-end'>
+                                    <h3>423</h3>
+                                    <p class='mb-0'>Total Visits</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class='row'>
+
+    {{! <div class='row'>
         <div class='col-xl-3 col-sm-6 col-12 mb-4'>
             <div class='card'>
                 <div class='card-body'>
@@ -234,5 +260,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> }}
 </section>

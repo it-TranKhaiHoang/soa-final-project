@@ -2,8 +2,21 @@ const axios = require('axios');
 const API_URL = process.env.API_URL;
 
 const student = {
-    dashboard: (req, res, next) => {
-        res.render('student/dashboard', { title: 'Dashboard' });
+    dashboard: async (req, res, next) => {
+        try {
+            const user = req.session.acc;
+            let classID = user.currentClass;
+            let studentName = user.fullname;
+            if (!user.studentID) {
+                classID = user.student.currentClass;
+                studentName = user.student.fullname;
+            }
+            const receives = (await axios.get(`${API_URL}ancm/list/receive/${user._id}`)).data;
+            res.render('student/dashboard', { title: 'Dashboard', classID, studentName, receives});
+        } catch (error) {
+            console.error(error);
+            res.render('error', { title: 'Error', layout: 'auth', message: 'Something went wrong' });
+        }
     },
     getAnnouncement: async (req, res, next) => {
         try {

@@ -1,38 +1,26 @@
 {{let 'user' 'teacher'}}
 <section class='mb-4'>
     <div id='class-id' class='d-none'>{{classID}}</div>
-    <input id='attend-date' type='date' class='form-control mb-3 w-50' />
+    <form>
+        <div class='d-flex'>
+            <input id='attend-date' name='date' type='date' class='form-control me-3 w-50' />
+            <button type='submit' class='btn btn-primary'>Chọn</button>
+        </div>
+    </form>
     <table id='listStudentCheckAttend' class='table table-hover' style='width:100%'>
         <thead>
             <tr>
                 <th>Attend</th>
                 <th>Student ID</th>
                 <th>Full name</th>
-                {{! <th></th> }}
-                {{! <th>Gender</th>
-                <th>Address</th> }}
             </tr>
         </thead>
-        <tbody>
+        <tbody id='attend-body'>
             {{#each students}}
                 <tr>
-                    <td></td>
-                    <td class='fw-bold mb-1'>{{studentID}}</td>
-                    <td class='fw-bold mb-1'>{{fullname}}</td>
-                    {{!-- <td>
-                        <button
-                            type='button'
-                            class='btn btn-primary'
-                            data-mdb-toggle='modal'
-                            data-mdb-target='#addDesc{{studentID}}'
-                        >
-                            Add Description
-                        </button>
-                    </td> --}}
-                    {{!-- <td>{{birth}}</td>
-                    <td>{{gender}}</td>
-                    <td>{{address}}</td> --}}
-
+                    <td {{#unless isPresent}}class="selected"{{/unless}}></td>
+                    <td class='fw-bold mb-1'>{{student.studentID}}</td>
+                    <td class='fw-bold mb-1'>{{student.fullname}}</td>
                 </tr>
             {{/each}}
         </tbody>
@@ -45,29 +33,29 @@
     <!-- Modal -->
     <div
         class='modal fade'
-        id='addDesc{{studentID}}'
+        id='addDesc{{student.studentID}}'
         tabindex='-1'
-        aria-labelledby='addDesc{{studentID}}Label'
+        aria-labelledby='addDesc{{student.studentID}}Label'
         aria-hidden='true'
     >
         <div class='modal-dialog'>
             <div class='modal-content'>
                 <div class='modal-header'>
-                    <h5 class='modal-title' id='addDesc{{studentID}}Label'>Description</h5>
+                    <h5 class='modal-title' id='addDesc{{student.studentID}}Label'>Description</h5>
                     <button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
                 </div>
                 <div class='modal-body'>
                     <!-- Message input -->
                     <div class='form-outline mb-4'>
-                        <textarea class='form-control' id='desc{{studentID}}' rows='4'></textarea>
-                        <label class='form-label' for='desc{{studentID}}'>Description</label>
+                        <textarea class='form-control' id='desc{{student.studentID}}' rows='4'></textarea>
+                        <label class='form-label' for='desc{{student.studentID}}'>Description</label>
                     </div>
                 </div>
                 <div class='modal-footer'>
                     <button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>
                     <button
                         type='button'
-                        onclick="fillDescription('{{studentID}}')"
+                        onclick="fillDescription('{{student.studentID}}')"
                         data-mdb-dismiss='modal'
                         class='btn btn-primary'
                     >Save changes</button>

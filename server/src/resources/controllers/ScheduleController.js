@@ -1,5 +1,9 @@
 const ScheduleService = require('../services/ScheduleService');
 
-const ScheduleController = {};
+const ScheduleController = {
+    postCreate: (req,res,next) => {
+        
+    }
+};
 
 module.exports = ScheduleController;

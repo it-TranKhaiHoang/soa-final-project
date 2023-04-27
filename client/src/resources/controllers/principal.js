@@ -60,8 +60,33 @@ const principal = {
         });
     },
 
-    getSchedule: (req, res, next) => {
-        res.render('principal/schedule', { title: 'Schedule' });
+    getSchedule: async (req, res, next) => {},
+
+    getScheduleDetail: async (req, res, next) => {
+        try {
+            const success = req.flash('success');
+            const error = req.flash('error');
+            const classID = req.path.split('/')[2];
+
+            // const listClass = (await axios.get(`${API_URL}class/list`)).data;
+            // const listTeacher = (await axios.get(`${API_URL}SchoolStaff/available`)).data;
+
+            // grade = {
+            //     grade1st: listClass.filter((item) => item.grade == '1st'),
+            //     grade2nd: listClass.filter((item) => item.grade == '2nd'),
+            //     grade3rd: listClass.filter((item) => item.grade == '3rd'),
+            //     grade4th: listClass.filter((item) => item.grade == '4th'),
+            //     grade5th: listClass.filter((item) => item.grade == '5th'),
+            // };
+            res.render('principal/schedule', {
+                title: 'Classroom',
+                success,
+                error,
+            });
+        } catch (error) {
+            console.error(error);
+            res.render('error', { layout: 'auth', message: 'Something went wrong' });
+        }
     },
 
     getClassroom: async (req, res, next) => {

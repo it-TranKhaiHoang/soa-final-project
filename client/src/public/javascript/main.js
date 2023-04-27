@@ -1,18 +1,3 @@
-function getAttendanceByDate(date) {
-    return fetch(`http://localhost:8080/api/attend/list/${$('#class-id').html()}/${date}`)
-        .then((response) => response.json())
-        .then((data) => {
-            for (const key of data.students) {
-                $('#attend-body').append(`<tr>
-                  <td></td>
-                  <td class='fw-bold mb-1'>${key.studentID}</td>
-                  <td class='fw-bold mb-1'>${key.fullname}</td>
-                </tr>`);
-            }
-        })
-        .catch((error) => console.error(error));
-}
-
 $(document).ready(function () {
     const page = ['classroom', 'teacher', 'schedule', 'announcement', 'scoreboard', 'attendance'];
     for (const i of page) {

@@ -62,7 +62,12 @@ const teacher = {
         try {
             const classID = req.session.acc.classHomeroom;
             const date = req.query.date;
-            const students = (await axios.get(`${API_URL}attend/list/${classID}/${date}`)).data?.students;
+            let students = (await axios.get(`${API_URL}attend/list/${classID}/${date}`)).data?.students;
+
+            if (!students) {
+                students = (await axios.get(`${API_URL}student/${classID}`)).data;
+                students = students.map((student) => ({ student }));
+            }
 
             res.render('teacher/attendance', { title: 'Attendance', students, classID });
         } catch (error) {

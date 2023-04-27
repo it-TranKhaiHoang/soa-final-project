@@ -185,7 +185,7 @@ $(document).ready(function () {
                         }),
                     })
                         .then((response) => response.json())
-                        .then((data) => console.log(data))
+                        .then((data) => location.reload())
                         .catch((error) => console.error(error));
                 },
             },
@@ -204,7 +204,7 @@ $(document).ready(function () {
         order: [[1, 'asc']],
         scrollX: true,
     });
-    table.rows($('.selected')).select();
+    table.rows($('.item-selected')).select();
     $('.dt-button').addClass('btn btn-primary mb-2');
     $('.dt-button').removeClass('dt-button');
 });

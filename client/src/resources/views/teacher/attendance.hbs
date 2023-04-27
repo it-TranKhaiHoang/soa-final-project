@@ -18,7 +18,11 @@
         <tbody id='attend-body'>
             {{#each students}}
                 <tr>
-                    <td {{#unless isPresent}}class="selected"{{/unless}}></td>
+                    {{#if isPresent}}
+                        <td class='item-selected'></td>
+                    {{else}}
+                        <td></td>
+                    {{/if}}
                     <td class='fw-bold mb-1'>{{student.studentID}}</td>
                     <td class='fw-bold mb-1'>{{student.fullname}}</td>
                 </tr>

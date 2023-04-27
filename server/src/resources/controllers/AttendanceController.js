@@ -7,10 +7,10 @@ const AttendanceController = {
         const classId = req.headers.classid;
         const list = await StudentService.getList({ currentClass: classId }, {}, {}, '');
         const result = list.map((student) => {
-            if (students.includes(student._id)) {
-                return { student: student._id, isPresent: true };
+            if (students.includes(student.studentID)) {
+                return { student: student.studentID, isPresent: true };
             }
-            return { student: student._id, isPresent: false };
+            return { student: student.studentID, isPresent: false };
         });
         AttendanceService.create({ class: classId, students: result, description })
             .then(() => {

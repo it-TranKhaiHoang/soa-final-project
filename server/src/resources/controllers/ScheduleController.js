@@ -4,7 +4,7 @@ const ScheduleController = {
     postCreate: (req, res, next) => {
         const data = {
             subject: req.body.subject,
-            class: req.body.classID,
+            currentClass: req.body.currentClass,
             dayOfWeek: req.body.dayOfWeek,
             startAt: req.body.startAt,
             endAt: req.body.endAt,
@@ -20,7 +20,7 @@ const ScheduleController = {
             });
     },
     getListByClassID: (req, res, next) => {
-        ScheduleService.getList({ class: req.params.classID }, {}, {}, 'subject')
+        ScheduleService.getList({ currentClass: req.params.classID }, {}, {}, 'subject')
             .then((schedules) => {
                 res.status(200).json(schedules);
             })

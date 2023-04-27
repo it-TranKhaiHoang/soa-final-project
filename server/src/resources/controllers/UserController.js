@@ -23,7 +23,7 @@ const UserController = {
         const { email, password } = req.body;
         let isStaff = await SchoolStaff.findOne({ email: email }).lean();
         let isStudent = await Student.findOne({ studentID: email }).lean();
-        let isParent = await Parent.findOne({ email: email }).lean();
+        let isParent = await Parent.findOne({ email: email }).populate('student').lean();
         if (isParent) {
             comparePassword(req, res, isParent, password);
         } else if (isStaff) {

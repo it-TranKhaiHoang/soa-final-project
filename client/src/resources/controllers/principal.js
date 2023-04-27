@@ -67,16 +67,7 @@ const principal = {
             const classID = req.path.split('/')[2];
             const currentClass = (await axios.get(`${API_URL}class/${classID}`)).data;
             const subjects = (await axios.get(`${API_URL}subject/list/${currentClass.grade}`)).data;
-            // const listClass = (await axios.get(`${API_URL}class/list`)).data;
-            // const listTeacher = (await axios.get(`${API_URL}SchoolStaff/available`)).data;
-
-            // grade = {
-            //     grade1st: listClass.filter((item) => item.grade == '1st'),
-            //     grade2nd: listClass.filter((item) => item.grade == '2nd'),
-            //     grade3rd: listClass.filter((item) => item.grade == '3rd'),
-            //     grade4th: listClass.filter((item) => item.grade == '4th'),
-            //     grade5th: listClass.filter((item) => item.grade == '5th'),
-            // };
+            const schedules = (await axios.get(`${API_URL}schedule/${classID}`)).data;
             res.render('principal/schedule', {
                 title: 'Classroom',
                 success,
@@ -177,7 +168,7 @@ const principal = {
         try {
             const data = {
                 subject: req.body.subject,
-                class: req.body.classID,
+                currentClass: req.body.classID,
                 dayOfWeek: req.body.dayOfWeek,
                 startAt: req.body.startAt,
                 endAt: req.body.endAt,

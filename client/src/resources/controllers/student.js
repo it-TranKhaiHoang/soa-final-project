@@ -34,7 +34,12 @@ const student = {
         }
     },
     getSchedule: (req, res, next) => {
-        res.render('student/schedule', { title: 'Schedule' });
+        const user = req.session.acc;
+        let classID = user.currentClass;
+        if (!user.studentID) {
+            classID = user.student.currentClass;
+        }
+        res.render('student/schedule', { title: 'Schedule', classID });
     },
     getScores: (req, res, next) => {
         res.render('student/scoreboard', { title: 'Scoreboard' });

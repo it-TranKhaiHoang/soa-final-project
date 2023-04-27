@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const Schedule = new Schema(
     {
-        class: { type: mongoose.Types.ObjectId, ref: 'Class' },
+        currentClass: { type: mongoose.Types.ObjectId, ref: 'Class' },
         subject: { type: mongoose.Types.ObjectId, ref: 'Subject' },
         dayOfWeek: {
             type: String,

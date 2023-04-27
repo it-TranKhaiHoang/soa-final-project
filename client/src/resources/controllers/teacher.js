@@ -11,7 +11,8 @@ const teacher = {
     },
 
     getSchedule: (req, res, next) => {
-        res.render('teacher/schedule', { title: 'Schedule' });
+        const user = req.session.acc;
+        res.render('teacher/schedule', { title: 'Schedule', classID: user.classHomeroom });
     },
 
     getAnnouncement: async (req, res, next) => {

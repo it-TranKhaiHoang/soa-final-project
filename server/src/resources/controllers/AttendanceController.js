@@ -7,10 +7,10 @@ const AttendanceController = {
         const classId = req.headers.classid;
         const list = await StudentService.getList({ currentClass: classId }, {}, {}, '');
         const result = list.map((student) => {
-            if (students.includes(student._id)) {
-                return { student: student._id, isPresent: true };
+            if (students.includes(student.studentID)) {
+                return { student: student.studentID, isPresent: true };
             }
-            return { student: student._id, isPresent: false };
+            return { student: student.studentID, isPresent: false };
         });
         AttendanceService.create({ class: classId, students: result, description })
             .then(() => {
@@ -47,8 +47,17 @@ const AttendanceController = {
             });
     },
     getListByClassIDandDate: (req, res, next) => {
-        const { date, classID } = req.params;
-        AttendanceService.getOne({ date: { $gt: new Date(date) }, class: classID }, 'students')
+        let { date, classID } = req.params;
+
+        if (date != 'undefined') {
+            date = new Date(date);
+        } else {
+            date = new Date();
+        }
+        const endDate = new Date();
+        endDate.setDate(date.getDate() + 1);
+
+        AttendanceService.getOne({ date: { $gte: date, $lte: endDate }, class: classID }, 'students.student')
             .then((attendance) => {
                 res.status(200).json(attendance);
             })

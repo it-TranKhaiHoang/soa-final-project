@@ -1,15 +1,19 @@
 function getAttendanceByDate(date) {
     return fetch(`http://localhost:8080/api/attend/list/${$('#class-id').html()}/${date}`)
         .then((response) => response.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+            for (const key of data.students) {
+                $('#attend-body').append(`<tr>
+                  <td></td>
+                  <td class='fw-bold mb-1'>${key.studentID}</td>
+                  <td class='fw-bold mb-1'>${key.fullname}</td>
+                </tr>`);
+            }
+        })
         .catch((error) => console.error(error));
 }
 
 $(document).ready(function () {
-    $('#attend-date').change(function () {
-        getAttendanceByDate($(this).val());
-    });
-
     const page = ['classroom', 'teacher', 'schedule', 'announcement', 'scoreboard', 'attendance'];
     for (const i of page) {
         if (location.pathname.split(i).length == 2) {
@@ -146,10 +150,8 @@ $(document).ready(function () {
         lengthMenu: [5, 10, 20, 50, 100, 200, 500],
         scrollX: true,
     });
-});
 
-$(document).ready(function () {
-    let table = $('#listStudentCheckAttend').DataTable({
+    table = $('#listStudentCheckAttend').DataTable({
         dom: 'Bfrtip',
         select: true,
         buttons: [
@@ -183,7 +185,7 @@ $(document).ready(function () {
                         }),
                     })
                         .then((response) => response.json())
-                        .then((data) => console.log(data))
+                        .then((data) => location.reload())
                         .catch((error) => console.error(error));
                 },
             },
@@ -202,6 +204,7 @@ $(document).ready(function () {
         order: [[1, 'asc']],
         scrollX: true,
     });
+    table.rows($('.item-selected')).select();
     $('.dt-button').addClass('btn btn-primary mb-2');
     $('.dt-button').removeClass('dt-button');
 });

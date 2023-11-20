@@ -1,4 +1,4 @@
-# SOA-FinalProject
+# Customer Order Management
 
 In order to create favorable conditions and increase interaction between homeroom teachers and
 students’ parents, a primary school wants to build a learning management Module for primary

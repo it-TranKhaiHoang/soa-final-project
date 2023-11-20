@@ -8,6 +8,9 @@ homework in order to minimize errors in recording student requests. In addition,
 helps teachers to easily enter and correct grades directly on the system to help increase work
 efficiency
 
+## System specification
+[Report](https://github.com/it-trankhaihoang/soa-final-project/tree/main/client/src/public/report/report.pdf)
+
 ## Installation
 
 It is recommended to install Yarn through the [npm package manager](https://www.npmjs.com/), which comes bundled with Node.js when you install it on your system.

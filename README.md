@@ -1,4 +1,4 @@
-# Customer Order Management
+# Primary School Classroom Management
 
 In order to create favorable conditions and increase interaction between homeroom teachers and
 students’ parents, a primary school wants to build a learning management Module for primary
@@ -9,7 +9,8 @@ helps teachers to easily enter and correct grades directly on the system to help
 efficiency
 
 ## System specification
-[Report](https://github.com/it-trankhaihoang/soa-final-project/tree/main/client/src/public/report/report.pdf)
+[Report](https://github.com/it-trankhaihoang/primary-school-classroom-management/tree/main/client/src/public/report/report.pdf)
+
 
 ## Installation
 

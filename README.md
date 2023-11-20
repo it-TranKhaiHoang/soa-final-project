@@ -10,7 +10,7 @@ efficiency
 
 ## System specification
 [Report](https://github.com/it-trankhaihoang/primary-school-classroom-management/tree/main/client/src/public/report/report.pdf)
-[embed][http://example.com/file.pdf](https://github.com/it-trankhaihoang/primary-school-classroom-management/tree/main/client/src/public/report/report.pdf)[/embed]
+[embed]https://github.com/it-trankhaihoang/primary-school-classroom-management/tree/main/client/src/public/report/report.pdf[/embed]
 
 
 ## Installation

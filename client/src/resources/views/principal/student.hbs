@@ -1,51 +1,350 @@
-<!-- Section: Main chart -->
-{{let 'user' 'principal'}}
-<section class='mb-4'>
-  <table id='example' class='table table-hover' style='width:100%'>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Age</th>
-        <th>Start date</th>
-        <th>Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Hermione Butler</td>
-        <td>Regional Director</td>
-        <td>London</td>
-        <td>47</td>
-        <td>2011-03-21</td>
-        <td>$356,250</td>
-      </tr>
-      <tr>
-        <td>Lael Greer</td>
-        <td>Systems Administrator</td>
-        <td>London</td>
-        <td>21</td>
-        <td>2009-02-27</td>
-        <td>$103,500</td>
-      </tr>
-      <tr>
-        <td>Jonas Alexander</td>
-        <td>Developer</td>
-        <td>San Francisco</td>
-        <td>30</td>
-        <td>2010-07-14</td>
-        <td>$86,500</td>
-      </tr>
-      <tr>
-        <td>Shad Decker</td>
-        <td>Regional Director</td>
-        <td>Edinburgh</td>
-        <td>51</td>
-        <td>2008-11-13</td>
-        <td>$183,000</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-<!-- Section: Main chart -->
+<button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#modalCreateStudent'><i
+        class='fa-solid fa-plus'
+    ></i>
+    Create new student
+</button>
+<hr class='hr' />
+{{#if success}}
+    <div class='alert alert-success d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{success}}
+        </div>
+    </div>
+{{/if}}
+{{#if error}}
+    <div class='alert alert-danger d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-xmark' style='color: #307722;'></i>
+            {{error}}
+        </div>
+    </div>
+{{/if}}
+
+<!-- Tabs navs -->
+<ul class='nav nav-pills mb-3' id='ex-with-icons' role='tablist'>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link active'
+            id='ex-with-icons-tab-1'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-1'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-1'
+            aria-selected='true'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 1</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-2'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-2'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-2'
+            aria-selected='false'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 2</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-3'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-3'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-3'
+            aria-selected='false'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 3</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-4'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-4'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-4'
+            aria-selected='false'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 4</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-5'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-5'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-5'
+            aria-selected='false'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 5</a>
+    </li>
+</ul>
+<!-- Tabs navs -->
+
+<!-- Tabs content -->
+<div class='tab-content' id='ex-with-icons-content'>
+    <div
+        class='tab-pane fade show active'
+        id='ex-with-icons-tabs-1'
+        role='tabpanel'
+        aria-labelledby='ex-with-icons-tab-1'
+    >
+        <table id='student-grade1st' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>StudentID</th>
+                    <th>Fullname</th>
+                    <th>Gender</th>
+                    <th>Birth</th>
+                    <th>Address</th>
+                    <th>Grade</th>
+                    <th>Class</th>
+                    <th>Parent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each students.grade1st}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{studentID}}</td>
+                        <td>{{fullname}}</td>
+                        <td>{{gender}}</td>
+                        <td>{{birth}}</td>
+                        <td>{{address}}</td>
+                        <td>{{currentGrade}}</td>
+                        <td>{{currentClass.name}}</td>
+                        <td><p>Name: {{parent.fullname}}</p><p>Email: {{parent.email}}</p><p>Phone:
+                                {{parent.phone}}</p></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-2' role='tabpanel' aria-labelledby='ex-with-icons-tab-2'>
+        <table id='student-grade2nd' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>StudentID</th>
+                    <th>Fullname</th>
+                    <th>Gender</th>
+                    <th>Birth</th>
+                    <th>Address</th>
+                    <th>Grade</th>
+                    <th>Class</th>
+                    <th>Parent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each students.grade2nd}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{studentID}}</td>
+                        <td>{{fullname}}</td>
+                        <td>{{gender}}</td>
+                        <td>{{birth}}</td>
+                        <td>{{address}}</td>
+                        <td>{{currentGrade}}</td>
+                        <td>{{currentClass.name}}</td>
+                        <td><p>Name: {{parent.fullname}}</p><p>Email: {{parent.email}}</p><p>Phone:
+                                {{parent.phone}}</p></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-3' role='tabpanel' aria-labelledby='ex-with-icons-tab-3'>
+        <table id='student-grade3rd' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>StudentID</th>
+                    <th>Fullname</th>
+                    <th>Gender</th>
+                    <th>Birth</th>
+                    <th>Address</th>
+                    <th>Grade</th>
+                    <th>Class</th>
+                    <th>Parent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each students.grade3rd}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{studentID}}</td>
+                        <td>{{fullname}}</td>
+                        <td>{{gender}}</td>
+                        <td>{{birth}}</td>
+                        <td>{{address}}</td>
+                        <td>{{currentGrade}}</td>
+                        <td>{{currentClass.name}}</td>
+                        <td><p>Name: {{parent.fullname}}</p><p>Email: {{parent.email}}</p><p>Phone:
+                                {{parent.phone}}</p></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-4' role='tabpanel' aria-labelledby='ex-with-icons-tab-4'>
+        <table id='student-grade4th' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>StudentID</th>
+                    <th>Fullname</th>
+                    <th>Gender</th>
+                    <th>Birth</th>
+                    <th>Address</th>
+                    <th>Grade</th>
+                    <th>Class</th>
+                    <th>Parent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each students.grade4th}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{studentID}}</td>
+                        <td>{{fullname}}</td>
+                        <td>{{gender}}</td>
+                        <td>{{birth}}</td>
+                        <td>{{address}}</td>
+                        <td>{{currentGrade}}</td>
+                        <td>{{currentClass.name}}</td>
+                        <td><p>Name: {{parent.fullname}}</p><p>Email: {{parent.email}}</p><p>Phone:
+                                {{parent.phone}}</p></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-5' role='tabpanel' aria-labelledby='ex-with-icons-tab-5'>
+        <table id='student-grade5th' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>StudentID</th>
+                    <th>Fullname</th>
+                    <th>Gender</th>
+                    <th>Birth</th>
+                    <th>Address</th>
+                    <th>Grade</th>
+                    <th>Class</th>
+                    <th>Parent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each students.grade5th}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{studentID}}</td>
+                        <td>{{fullname}}</td>
+                        <td>{{gender}}</td>
+                        <td>{{birth}}</td>
+                        <td>{{address}}</td>
+                        <td>{{currentGrade}}</td>
+                        <td>{{currentClass.name}}</td>
+                        <td><p>Name: {{parent.fullname}}</p><p>Email: {{parent.email}}</p><p>Phone:
+                                {{parent.phone}}</p></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Tabs content -->
+
+<!-- Modal -->
+<div
+    class='modal fade'
+    id='modalCreateStudent'
+    tabindex='-1'
+    aria-labelledby='modalCreateStudentLabel'
+    aria-hidden='true'
+>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='modalCreateStudentLabel'>Create new student</h5>
+                <button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
+            </div>
+            <div class='modal-body'>
+                <form action='' method='post'>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='text' id='form6Example1' name='fullname' class='form-control' required />
+                                <label class='form-label' for='form6Example1'>Fullname: </label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <select class='form-select' name='gender' aria-label='Default select example'>
+                                <option value='' selected>Choose gender</option>
+                                <option value='male'>Male</option>
+                                <option value='female'>Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='Date' id='scheduleStart' name='birth' class='form-control' required />
+                                <label class='form-label' for='scheduleStart'>Birthday</label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <select class='form-select' name='currentGrade' aria-label='Default select example'>
+                                <option value='' selected>Choose grade</option>
+                                <option value='1st'>1st Grade</option>
+                                <option value='2nd'>2nd Grade</option>
+                                <option value='3rd'>3nd Grade</option>
+                                <option value='4th'>4th Grade</option>
+                                <option value='5th'>5th Grade</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='text' id='form6Example1' name='address' class='form-control' required />
+                                <label class='form-label' for='form6Example1'>Address: </label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='text' id='form6Example1' name='parentName' class='form-control' required />
+                                <label class='form-label' for='form6Example1'>Parent name: </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input
+                                    type='text'
+                                    id='form6Example1'
+                                    name='parentEmail'
+                                    class='form-control'
+                                    required
+                                />
+                                <label class='form-label' for='form6Example1'>Parent email: </label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input
+                                    type='text'
+                                    id='form6Example1'
+                                    name='parentPhone'
+                                    class='form-control'
+                                    required
+                                />
+                                <label class='form-label' for='form6Example1'>Parent phone: </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Text input -->
+
+                    <!-- Submit button -->
+                    <button type='submit' class='btn btn-primary btn-block mb-4'>Create</button>
+                </form>
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>

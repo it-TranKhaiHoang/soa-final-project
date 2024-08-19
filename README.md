@@ -9,8 +9,8 @@ helps teachers to easily enter and correct grades directly on the system to help
 efficiency
 
 ## System specification
-[Report](https://github.com/it-trankhaihoang/primary-school-classroom-management/tree/main/client/src/public/report/report.pdf)
 
+[Report](https://github.com/it-trankhaihoang/primary-school-classroom-management/tree/main/report.pdf)
 
 ## Installation
 
@@ -38,7 +38,13 @@ yarn install
 Start server
 
 ```bash
-yarn start
+yarn run server
+```
+
+Start client
+
+```bash
+yarn run client
 ```
 
 ## Contributing
@@ -50,4 +56,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-[MIT](https://github.com/it-TranKhaiHoang/SOA-FinalProject/blob/main/LICENSE)
+[MIT](https://github.com/khaihoangtran/primary-school-classroom-management/blob/main/LICENSE)

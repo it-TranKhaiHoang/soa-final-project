@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 8080;
 require('dotenv').config();
 const database = require('./config/database');
 const session = require('express-session');
@@ -8,6 +7,7 @@ const flash = require('express-flash');
 const cookieParser = require('cookie-parser');
 const apiRouter = require('./resources/routers/index');
 const cors = require('cors');
+const port = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

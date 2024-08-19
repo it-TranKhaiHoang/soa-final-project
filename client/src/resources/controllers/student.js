@@ -68,7 +68,7 @@ const student = {
         if (!user.studentID) {
             classID = user.student.currentClass;
         }
-        res.render('student/schedule', { title: 'Schedule', classID: classID._id });
+        res.render('student/schedule', { title: 'Schedule', classID: classID?._id });
     },
     getScores: (req, res, next) => {
         res.render('student/scoreboard', { title: 'Scoreboard' });

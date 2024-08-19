@@ -1,47 +1,47 @@
 $(document).ready(function () {
-    const page = ['classroom', 'teacher', 'schedule', 'announcement', 'scoreboard', 'attendance'];
+    const page = ['classroom', 'teacher', 'schedule', 'announcement', 'scoreboard', 'attendance','student','subject'];
     for (const i of page) {
         if (location.pathname.split(i).length == 2) {
             $(`#${i}`).addClass('active');
             break;
         }
     }
-    $('#ListStudentTable').DataTable({
-        columnDefs: [
-            {
-                targets: 3,
-                render: DataTable.render.datetime('Do MMM YYYY'),
-            },
-        ],
-        scrollX: true,
-    });
-    $('#listStudentInClass').DataTable({
-        columnDefs: [
-            {
-                targets: 3,
-                render: DataTable.render.datetime('Do MMM YYYY'),
-            },
-        ],
-        scrollX: true,
-    });
-    $('#listStudentFree').DataTable({
-        columnDefs: [
-            {
-                targets: 3,
-                render: DataTable.render.datetime('Do MMM YYYY'),
-            },
-        ],
-        scrollX: true,
-    });
-    $('#listPrincipalAnnouncement').DataTable({
-        columnDefs: [
-            {
-                targets: 3,
-                render: DataTable.render.datetime('Do MMM YYYY'),
-            },
-        ],
-        scrollX: true,
-    });
+    // $('#ListStudentTable').DataTable({
+    //     columnDefs: [
+    //         {
+    //             targets: 3,
+    //             render: DataTable.render.datetime('Do MMM YYYY'),
+    //         },
+    //     ],
+    //     scrollX: true,
+    // });
+    // $('#listStudentInClass').DataTable({
+    //     columnDefs: [
+    //         {
+    //             targets: 3,
+    //             render: DataTable.render.datetime('Do MMM YYYY'),
+    //         },
+    //     ],
+    //     scrollX: true,
+    // });
+    // $('#listStudentFree').DataTable({
+    //     columnDefs: [
+    //         {
+    //             targets: 3,
+    //             render: DataTable.render.datetime('Do MMM YYYY'),
+    //         },
+    //     ],
+    //     scrollX: true,
+    // });
+    // $('#listPrincipalAnnouncement').DataTable({
+    //     columnDefs: [
+    //         {
+    //             targets: 3,
+    //             render: DataTable.render.datetime('Do MMM YYYY'),
+    //         },
+    //     ],
+    //     scrollX: true,
+    // });
     let table = $('#listTeacherSent').DataTable({
         dom: 'Bfrtip',
         select: true,
@@ -195,3 +195,14 @@ $(document).ready(function () {
 });
 
 $('#listTeacher').DataTable({ columnDefs: [{ targets: 3, render: DataTable.render.datetime('Do MMM YYYY') }] });
+$('#subject-grade1st').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });
+$('#subject-grade2nd').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });
+$('#subject-grade3rd').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });
+$('#subject-grade4th').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });
+$('#subject-grade5th').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });
+
+$('#student-grade1st').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });
+$('#student-grade2nd').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });
+$('#student-grade3rd').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });
+$('#student-grade4th').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });
+$('#student-grade5th').DataTable({ columnDefs: [{ render: DataTable.render.datetime('Do MMM YYYY') }] });

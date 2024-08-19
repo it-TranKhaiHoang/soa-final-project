@@ -44,11 +44,12 @@ const ClassController = {
                         res.status(201).json({ message: 'New class has been created successfully' });
                     })
                     .catch((err) => {
-                        res.status(500);
-                        res.json({ message: err });
+                        console.error(err);
+                        res.status(500).json({ message: err });
                     });
             })
             .catch((err) => {
+                console.error(err);
                 res.status(500).json({ error: err });
             });
     },

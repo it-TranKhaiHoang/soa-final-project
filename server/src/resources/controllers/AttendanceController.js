@@ -7,16 +7,17 @@ const AttendanceController = {
         const classId = req.headers.classid;
         const list = await StudentService.getList({ currentClass: classId }, {}, {}, '');
         const result = list.map((student) => {
-            if (students.includes(student.studentID)) {
-                return { student: student.studentID, isPresent: true };
+            if (students.includes(student._id)) {
+                return { student: student._id, isPresent: true };
             }
-            return { student: student.studentID, isPresent: false };
+            return { student: student._id, isPresent: false };
         });
         AttendanceService.create({ class: classId, students: result, description })
             .then(() => {
                 res.status(201).json({ message: 'New attendance has been created successfully' });
             })
             .catch((err) => {
+              console.error(err);
                 res.status(500).json({ error: err });
             });
     },

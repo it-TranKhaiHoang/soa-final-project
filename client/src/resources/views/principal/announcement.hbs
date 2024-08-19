@@ -15,7 +15,7 @@
 {{#if error}}
     <div class='alert alert-danger d-flex align-items-center' role='alert'>
         <div>
-            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            <i class='fa-regular fa-circle-xmark' style='color: #307722;'></i>
             {{error}}
         </div>
     </div>
@@ -90,18 +90,18 @@
                 <form method='post' action=''>
                     <!-- Name input -->
                     <div class='form-outline mb-4'>
-                        <input type='text' id='form4Example1' name='title' class='form-control' />
+                        <input type='text' id='form4Example1' name='title' class='form-control' required />
                         <label class='form-label' for='form4Example1'>Title</label>
                     </div>
                     <input class='d-none' type='text' name='sendTo' id='sendTo' />
                     <select class='form-select mb-4' name='type' aria-label='Default select example'>
-                        <option selected>Choose type</option>
+                        <option value='' selected>Choose type</option>
                         <option value='announcement'>Announcement</option>
                         <option value='remind'>Remind</option>
                         <option value='invitation'>Invitation</option>
                     </select>
                     <select class='form-select mb-4' name='role' aria-label='Default select example'>
-                        <option selected>Who can see this announcement</option>
+                        <option value='' selected>Who can see this announcement</option>
                         <option value='all'>All</option>
                         <option value='teachers'>Teacher</option>
                         <option value='parents'>Parents</option>
@@ -110,7 +110,7 @@
 
                     <!-- Message input -->
                     <div class='form-outline mb-4'>
-                        <textarea class='form-control' id='form4Example3' name='body' rows='4'></textarea>
+                        <textarea class='form-control' id='form4Example3' name='body' rows='4' required></textarea>
                         <label class='form-label' for='form4Example3'>Message</label>
                     </div>
                     <!-- Submit button -->

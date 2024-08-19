@@ -23,11 +23,13 @@ const auth = {
                         res.redirect('/s');
                     }
                 } else {
+                    req.flash('error', 'Incorrect email address or password!');
                     res.redirect('/auth/login');
                 }
             })
             .catch((error) => {
                 console.error(error);
+                req.flash('error', 'Something went wrong. Please try again later!');
                 res.status(500).send('Error');
             });
     },

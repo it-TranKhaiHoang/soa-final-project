@@ -5,6 +5,7 @@ const Schedule = new Schema(
     {
         currentClass: { type: mongoose.Types.ObjectId, ref: 'Class' },
         subject: { type: mongoose.Types.ObjectId, ref: 'Subject' },
+        teacher: { type: mongoose.Types.ObjectId, ref: 'SchoolStaff' },
         dayOfWeek: {
             type: String,
             required: true,

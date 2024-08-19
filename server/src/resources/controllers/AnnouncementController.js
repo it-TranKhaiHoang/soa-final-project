@@ -22,7 +22,7 @@ async function sendMail(email, data) {
             service: 'gmail',
             auth: {
                 type: 'OAuth2',
-                user: 'it.trankhaihoang@gmail.com',
+                user: 'tanphat200265@gmail.com',
                 clientId: CLIENT_ID,
                 clientSecret: CLIENT_SECRET,
                 refreshToken: REFRESH_TOKEN,
@@ -30,7 +30,7 @@ async function sendMail(email, data) {
             },
         });
         let info = await transport.sendMail({
-            from: '"Principle - Hoang K. Tran 👻" <it.trankhaihoang@gmail.com>', // sender address
+            from: 'tanphat200265@gmail.com', // sender address
             to: email, // list of receivers
             subject: `${data.title} ✔`, // Subject line
             text: `${data.type}`, // plain text body
@@ -69,6 +69,7 @@ const AnnouncementController = {
                 res.status(201).json({ message: 'New announcement has been created successfully', created: true });
             })
             .catch((err) => {
+                console.error(err);
                 res.status(500).json({ error: err });
             });
     },

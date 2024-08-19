@@ -12,7 +12,7 @@
 {{#if error}}
     <div class='alert alert-danger d-flex align-items-center' role='alert'>
         <div>
-            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            <i class='fa-regular fa-circle-xmark' style='color: #307722;'></i>
             {{error}}
         </div>
     </div>
@@ -49,15 +49,15 @@
                     <div class='row mb-4'>
                         <div class='col'>
                             <select class='form-select' name='subject' aria-label='Default select example'>
-                                <option selected>Choose subject</option>
+                                <option value='' selected>Choose subject</option>
                                 {{#each subjects}}
-                                    <option value='{{_id}}'>{{name}}</option>
+                                    <option value='{{_id}}'>{{name}} - {{grade}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class='col'>
                             <select class='form-select' name='dayOfWeek' aria-label='Default select example'>
-                                <option selected>Choose date of week</option>
+                                <option value='' selected>Choose date of week</option>
                                 <option value='1'>Monday</option>
                                 <option value='2'>Tuesday</option>
                                 <option value='3'>Wednesday</option>
@@ -70,13 +70,13 @@
                     <div class='row mb-4'>
                         <div class='col'>
                             <div class='form-outline'>
-                                <input type='Date' id='scheduleStart' name='startAt' class='form-control' />
+                                <input type='Date' id='scheduleStart' name='startAt' class='form-control' required />
                                 <label class='form-label' for='scheduleStart'>Date start</label>
                             </div>
                         </div>
                         <div class='col'>
                             <div class='form-outline'>
-                                <input type='Date' id='ScheduleEnd' name='endAt' class='form-control' />
+                                <input type='Date' id='ScheduleEnd' name='endAt' class='form-control' required />
                                 <label class='form-label' for='ScheduleEnd'>Date end</label>
                             </div>
                         </div>
@@ -84,13 +84,13 @@
                     <div class='row mb-4'>
                         <div class='col'>
                             <div class='form-outline'>
-                                <input type='time' id='scheduleStart' name='startTime' class='form-control' />
+                                <input type='time' id='scheduleStart' name='startTime' class='form-control' required />
                                 <label class='form-label' for='scheduleStart'>Starting time</label>
                             </div>
                         </div>
                         <div class='col'>
                             <div class='form-outline'>
-                                <input type='time' id='ScheduleEnd' name='endTime' class='form-control' />
+                                <input type='time' id='ScheduleEnd' name='endTime' class='form-control' required />
                                 <label class='form-label' for='ScheduleEnd'>Ending time</label>
                             </div>
                         </div>

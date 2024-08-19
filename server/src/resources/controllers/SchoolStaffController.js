@@ -8,8 +8,9 @@ function hashPassword(password) {
 }
 const SchoolStaffController = {
     postCreate: (req, res, next) => {
-        const { email, fullname, phone, position, address, gender } = req.body;
+        const { email, fullname, phone, position, address, gender, classHomeroom } = req.body;
         const password = hashPassword(email.split('@')[0]);
+
         SchoolStaffService.create({ email, password, fullname, phone, position, address, gender })
             .then(() => {
                 res.status(201).json({ message: 'New school staff has been created successfully' });

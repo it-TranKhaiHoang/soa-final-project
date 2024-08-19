@@ -52,7 +52,8 @@ const teacher = {
         try {
             const user = req.session.acc;
             const students = (await axios.get(`${API_URL}student/${user.classHomeroom}`)).data;
-            res.render('teacher/classroom', { title: 'Classroom', students });
+            const classname = students[0]?.currentClass.name;
+            res.render('teacher/classroom', { title: 'Classroom', students, classname });
         } catch (error) {
             console.error(error);
             res.render('error', { title: 'Error', layout: 'auth', message: 'Something went wrong' });
@@ -77,8 +78,19 @@ const teacher = {
         }
     },
     createAnnouncement: (req, res, next) => {
+        if (!req.body.type) {
+            req.flash('error', 'Please, chose the announcement type!');
+            return res.redirect('/t/announcement');
+        }
+        if (!req.body.role) {
+            req.flash('error', 'Please, chose who can see the announcement!');
+            return res.redirect('/t/announcement');
+        }
+        if (!req.body.sendTo) {
+            req.flash('error', 'Please, chose recipients by clicking "SAVE DATA"!');
+            return res.redirect('/t/announcement');
+        }
         const user = req.session.acc;
-
         const data = {
             title: req.body.title,
             type: req.body.type,

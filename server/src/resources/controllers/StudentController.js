@@ -1,5 +1,5 @@
 const StudentService = require('../services/StudentService');
-const ClassService = require('../services/ClassService');
+const ParentService = require('../services/ParentService');
 const bcrypt = require('bcryptjs');
 
 function hashPassword(password) {
@@ -17,17 +17,33 @@ function createStudentID() {
     return id;
 }
 const StudentController = {
-    postCreate: (req, res, next) => {
-        const { fullname, birth, gender, address, currentGrade } = req.body;
+    postCreate: async (req, res, next) => {
+        const { fullname, birth, gender, address, currentGrade, parentName, parentEmail, parentPhone } = req.body;
         const studentID = createStudentID();
         const password = hashPassword(studentID);
-        StudentService.create({ studentID, fullname, password, birth, gender, address, currentGrade })
-            .then(() => {
-                res.status(201).json({ message: 'New student has been created successfully' });
-            })
-            .catch((err) => {
-                res.status(500).json({ error: err });
+        try {
+            const student = await StudentService.create({
+                studentID,
+                fullname,
+                password,
+                birth,
+                gender,
+                address,
+                currentGrade,
             });
+            const parent = await ParentService.create({
+                fullname: parentName,
+                email: parentEmail,
+                password: hashPassword(parentEmail.split('@')[0]),
+                phone: parentPhone,
+                address,
+                student,
+            });
+            await StudentService.update(student._id, { parent });
+            res.status(201).json({ message: 'New student has been created successfully' });
+        } catch (error) {
+            res.status(500).json({ error: err });
+        }
     },
     putUpdate: (req, res, next) => {
         const { fullname, birth, gender, address, currentGrade } = req.body;
@@ -45,6 +61,7 @@ const StudentController = {
     getListAll: (req, res, next) => {
         StudentService.getList({}, {}, {}, { path: 'currentClass', populate: { path: 'teacher' } })
             .then((students) => {
+                students = students.map((student) => ({ ...student, birth: student.birth.toLocaleString('vi-VN') }));
                 res.status(200).json(students);
             })
             .catch((err) => {
@@ -54,6 +71,7 @@ const StudentController = {
     getListFree: (req, res, next) => {
         StudentService.getList({ currentClass: null }, {}, {}, '')
             .then((students) => {
+                students = students.map((student) => ({ ...student, birth: student.birth.toLocaleString('vi-VN') }));
                 res.status(200).json(students);
             })
             .catch((err) => {
@@ -68,9 +86,11 @@ const StudentController = {
             { path: 'currentClass', populate: { path: 'teacher' } },
         )
             .then((students) => {
+                students = students.map((student) => ({ ...student, birth: student.birth.toLocaleString('vi-VN') }));
                 res.status(200).json(students);
             })
             .catch((err) => {
+                console.error(err);
                 res.status(500).json({ error: err });
             });
     },
@@ -82,6 +102,7 @@ const StudentController = {
             { path: 'currentClass', populate: { path: 'teacher' } },
         )
             .then((students) => {
+                students = students.map((student) => ({ ...student, birth: student.birth.toLocaleString('vi-VN') }));
                 res.status(200).json(students);
             })
             .catch((err) => {

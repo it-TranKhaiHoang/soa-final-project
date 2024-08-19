@@ -16,7 +16,7 @@
 {{#if error}}
     <div class='alert alert-danger d-flex align-items-center' role='alert'>
         <div>
-            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            <i class='fa-regular fa-circle-xmark' style='color: #307722;'></i>
             {{error}}
         </div>
     </div>
@@ -335,13 +335,13 @@
                     <div class='row mb-4'>
                         <div class='col'>
                             <div class='form-outline'>
-                                <input type='text' id='form6Example1' name="name" class='form-control' />
+                                <input type='text' id='form6Example1' name="name" class='form-control' required />
                                 <label class='form-label' for='form6Example1'>Class name</label>
                             </div>
                         </div>
                         <div class='col'>
                             <div class='form-outline'>
-                                <input type='text' id='form6Example2' name="currentYear" class='form-control' />
+                                <input type='text' id='form6Example2' name="currentYear" class='form-control' required />
                                 <label class='form-label' for='form6Example2'>School year:</label>
                             </div>
                         </div>
@@ -349,7 +349,7 @@
                     <div class='row mb-4'>
                         <div class='col'>
                             <select class='form-select' name="grade" aria-label='Default select example'>
-                                <option selected>Choose grade</option>
+                                <option value='' selected>Choose grade</option>
                                 <option value='1st'>1st Grade</option>
                                 <option value='2nd'>2nd Grade</option>
                                 <option value='3rd'>3nd Grade</option>
@@ -359,7 +359,7 @@
                         </div>
                         <div class='col'>
                             <select class='form-select' name="teacher" aria-label='Default select example'>
-                                <option selected>Choose homeroom teacher</option>
+                                <option value='' selected>Choose homeroom teacher</option>
                                 {{#each listTeacher}}
                                 <option value='{{_id}}'>{{fullname}}</option>
                                 {{/each}}

@@ -20,8 +20,7 @@ const Student = new Schema({
     },
     gender: {
         type: String,
-        enum: ['male', 'female', 'none'],
-        default: 'none',
+        enum: ['male', 'female'],
     },
     address: { type: String },
     currentGrade: {

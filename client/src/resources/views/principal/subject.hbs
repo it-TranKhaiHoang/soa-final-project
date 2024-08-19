@@ -1,0 +1,254 @@
+<button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#modalCreateSubject'><i
+        class='fa-solid fa-plus'
+    ></i>
+    Create new subject
+</button>
+<hr class='hr' />
+{{#if success}}
+    <div class='alert alert-success d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{success}}
+        </div>
+    </div>
+{{/if}}
+{{#if error}}
+    <div class='alert alert-danger d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-xmark' style='color: #307722;'></i>
+            {{error}}
+        </div>
+    </div>
+{{/if}}
+
+<!-- Tabs navs -->
+<ul class='nav nav-pills mb-3' id='ex-with-icons' role='tablist'>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link active'
+            id='ex-with-icons-tab-1'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-1'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-1'
+            aria-selected='true'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 1</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-2'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-2'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-2'
+            aria-selected='false'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 2</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-3'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-3'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-3'
+            aria-selected='false'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 3</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-4'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-4'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-4'
+            aria-selected='false'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 4</a>
+    </li>
+    <li class='nav-item' role='presentation'>
+        <a
+            class='nav-link'
+            id='ex-with-icons-tab-5'
+            data-mdb-toggle='tab'
+            href='#ex-with-icons-tabs-5'
+            role='tab'
+            aria-controls='ex-with-icons-tabs-5'
+            aria-selected='false'
+        ><i class='fa-solid fa-users-rectangle'></i> Grade 5</a>
+    </li>
+</ul>
+<!-- Tabs navs -->
+
+<!-- Tabs content -->
+<div class='tab-content' id='ex-with-icons-content'>
+    <div
+        class='tab-pane fade show active'
+        id='ex-with-icons-tabs-1'
+        role='tabpanel'
+        aria-labelledby='ex-with-icons-tab-1'
+    >
+        <table id='subject-grade1st' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each subjects.grade1st}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{name}}</td>
+                        <td>{{grade}}</td>
+                        <td>{{description}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-2' role='tabpanel' aria-labelledby='ex-with-icons-tab-2'>
+        <table id='subject-grade2nd' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each subjects.grade2nd}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{name}}</td>
+                        <td>{{grade}}</td>
+                        <td>{{description}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-3' role='tabpanel' aria-labelledby='ex-with-icons-tab-3'>
+        <table id='subject-grade3rd' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each subjects.grade3rd}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{name}}</td>
+                        <td>{{grade}}</td>
+                        <td>{{description}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-4' role='tabpanel' aria-labelledby='ex-with-icons-tab-4'>
+        <table id='subject-grade4th' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each subjects.grade4th}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{name}}</td>
+                        <td>{{grade}}</td>
+                        <td>{{description}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class='tab-pane fade' id='ex-with-icons-tabs-5' role='tabpanel' aria-labelledby='ex-with-icons-tab-5'>
+        <table id='subject-grade5th' class='table table-hover' style='width:100%'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each subjects.grade5th}}
+                    <tr>
+                        <td class='fw-bold mb-1'>{{name}}</td>
+                        <td>{{grade}}</td>
+                        <td>{{description}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Tabs content -->
+
+<!-- Modal -->
+<div
+    class='modal fade'
+    id='modalCreateSubject'
+    tabindex='-1'
+    aria-labelledby='modalCreateSubjectLabel'
+    aria-hidden='true'
+>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='modalCreateSubjectLabel'>Create new subject</h5>
+                <button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
+            </div>
+            <div class='modal-body'>
+                <form action='' method='post'>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='text' id='form6Example1' name='name' class='form-control' required />
+                                <label class='form-label' for='form6Example1'>Name: </label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input
+                                    type='text'
+                                    id='form6Example2'
+                                    name='description'
+                                    class='form-control'
+                                    required
+                                />
+                                <label class='form-label' for='form6Example2'>Description:</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <select class='form-select' name='grade' aria-label='Default select example'>
+                                <option value='' selected>Choose grade</option>
+                                <option value='1st'>1st Grade</option>
+                                <option value='2nd'>2nd Grade</option>
+                                <option value='3rd'>3nd Grade</option>
+                                <option value='4th'>4th Grade</option>
+                                <option value='5th'>5th Grade</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Text input -->
+
+                    <!-- Submit button -->
+                    <button type='submit' class='btn btn-primary btn-block mb-4'>Create</button>
+                </form>
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>

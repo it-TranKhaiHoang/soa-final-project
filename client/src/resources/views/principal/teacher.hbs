@@ -1,4 +1,25 @@
+<button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#modalCreateTeacher'><i
+        class='fa-solid fa-plus'
+    ></i>
+    Create new teacher
+</button>
 <hr class='hr' />
+{{#if success}}
+    <div class='alert alert-success d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-check' style='color: #307722;'></i>
+            {{success}}
+        </div>
+    </div>
+{{/if}}
+{{#if error}}
+    <div class='alert alert-danger d-flex align-items-center' role='alert'>
+        <div>
+            <i class='fa-regular fa-circle-xmark' style='color: #307722;'></i>
+            {{error}}
+        </div>
+    </div>
+{{/if}}
 <section class='text-center'>
     <div class='row'>
         <div class='col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative'>
@@ -50,7 +71,76 @@
     </table>
 </section>
 <!-- Section: Main chart -->
-<script>
+
+<!-- Modal -->
+<div
+    class='modal fade'
+    id='modalCreateTeacher'
+    tabindex='-1'
+    aria-labelledby='modalCreateTeacherLabel'
+    aria-hidden='true'
+>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='modalCreateTeacherLabel'>Create new teacher</h5>
+                <button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>
+            </div>
+            <div class='modal-body'>
+                <form action='' method='post'>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='text' id='form6Example1' name='fullname' class='form-control' required />
+                                <label class='form-label' for='form6Example1'>Full name:</label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='text' id='form6Example2' name='email' class='form-control' required />
+                                <label class='form-label' for='form6Example2'>Email:</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <select class='form-select' name='gender' aria-label='Default select example'>
+                                <option value='' selected>Choose gender</option>
+                                <option value='male'>Male</option>
+                                <option value='female'>Female</option>
+                            </select>
+                        </div>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='text' id='form6Example2' name='phone' class='form-control' required />
+                                <label class='form-label' for='form6Example2'>Phone:</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row mb-4'>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input type='text' id='form6Example2' name='address' class='form-control' required />
+                                <label class='form-label' for='form6Example2'>Address:</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input -->
+
+                    <!-- Submit button -->
+                    <button type='submit' class='btn btn-primary btn-block mb-4'>Create</button>
+                </form>
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- <script>
     $('#listTeacher').DataTable({ columnDefs: [ { targets: 3, render: DataTable.render.datetime('Do MMM YYYY'), }, ],
     });
-</script>
+</script> --}}
